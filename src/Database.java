@@ -5,20 +5,20 @@ public class Database {
     private ArrayList<BudgetCategory> budgetCategories;
 
     public Database() {
-        transactions = new ArrayList<>();
-        budgetCategories = new ArrayList<>();
+        this.transactions = new ArrayList<>();
+        this.budgetCategories = new ArrayList<>();
         addPresetTransactions();
         addPresetCategories();
     }
 
     public ArrayList<Transaction> getTransactions() {
 
-        return new ArrayList<>(transactions);
+        return this.transactions;
     }
 
     public ArrayList<BudgetCategory> getBudgetCategories() {
 
-        return new ArrayList<>(budgetCategories);
+        return this.budgetCategories;
     }
 
     public void addTransaction(Transaction transaction) {
