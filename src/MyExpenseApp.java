@@ -1,15 +1,25 @@
 import java.util.Scanner;
 
 public class MyExpenseApp {
+
+    private static MyExpenseApp instance;
+
     private TransactionManager transactionManager;
     private CategoryManager categoryManager;
     private BudgetTracker budgetTracker;
 
-    public MyExpenseApp() {
-        this.transactionManager = new TransactionManager();
-        this.categoryManager = new CategoryManager();
-        this.budgetTracker = new BudgetTracker();
+    private MyExpenseApp() {
+        transactionManager = new TransactionManager();
+        categoryManager = new CategoryManager();
+        budgetTracker = new BudgetTracker();
     }
+
+    public static MyExpenseApp getInstance() {
+        if (instance == null)
+            instance = new MyExpenseApp();
+        return instance;
+    }
+
     public void displayMenu() {
         System.out.println("Expense Tracker Menu:");
         System.out.println("1. View Recent Transactions");
