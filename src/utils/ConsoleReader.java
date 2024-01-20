@@ -31,7 +31,7 @@ public class ConsoleReader {
     public String readString() {
         while (true) {
             try {
-                return scanner.nextLine();
+                return scanner.next();
             } catch (java.util.InputMismatchException e) {
                 scanner.nextLine();
                 System.out.print("Invalid input!. Please enter a valid text: ");

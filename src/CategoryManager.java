@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 public class CategoryManager {
     private Database database;
+
     public CategoryManager() {
         this.database = Database.getInstance();
     }
+
     public void viewCategories() {
         System.out.println("Budget Categories:");
         ArrayList<BudgetCategory> categories = database.getBudgetCategories();
@@ -27,6 +29,7 @@ public class CategoryManager {
             System.out.println("Invalid category number. Please enter a valid number.");
         }
     }
+
     public void addNewCategory() {
         ConsoleReader reader = ConsoleReader.getInstance();
         System.out.print("Enter the name of the new category: ");
