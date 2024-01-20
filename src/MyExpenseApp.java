@@ -31,11 +31,10 @@ public class MyExpenseApp {
         System.out.println("7. Track Progress");
         System.out.println("8. Exit");
 
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your choice: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+    }
 
+    public void processUserChoice(Integer choice) {
         switch (choice) {
             case 1:
                 transactionManager.viewRecentTransactions();
@@ -57,10 +56,6 @@ public class MyExpenseApp {
                 break;
             case 7:
                 budgetTracker.trackProgress();
-                break;
-            case 8:
-                System.out.println("Exiting MyExpenseApp Application. Goodbye!");
-                System.exit(0);
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a number from 1 to 8.");
