@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class CategoryManager {
     private Database database;
     public CategoryManager() {
-        this.database = new Database();
+        this.database = Database.getInstance();
     }
     public void viewCategories() {
         Scanner scanner = new Scanner(System.in);

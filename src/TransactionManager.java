@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class TransactionManager {
     private Database database;
     public TransactionManager() {
-        this.database = new Database();
+        this.database = Database.getInstance();;
     }
 
     public void viewRecentTransactions() {

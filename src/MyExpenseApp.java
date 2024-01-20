@@ -1,9 +1,8 @@
-import java.util.Scanner;
+import utils.ConsoleReader;
 
 public class MyExpenseApp {
 
     private static MyExpenseApp instance;
-
     private TransactionManager transactionManager;
     private CategoryManager categoryManager;
     private BudgetTracker budgetTracker;
@@ -14,51 +13,46 @@ public class MyExpenseApp {
         budgetTracker = new BudgetTracker();
     }
 
-    public static MyExpenseApp getInstance() {
+    public static synchronized MyExpenseApp getInstance() {
         if (instance == null)
             instance = new MyExpenseApp();
         return instance;
     }
 
     public void displayMenu() {
-        System.out.println("Expense Tracker Menu:");
-        System.out.println("1. View Recent Transactions");
-        System.out.println("2. Add New Transaction");
-        System.out.println("3. Edit/Delete Transaction");
-        System.out.println("4. View Categories");
-        System.out.println("5. Add New Category");
-        System.out.println("6. Set Budget");
-        System.out.println("7. Track Progress");
-        System.out.println("8. Exit");
-
-        System.out.print("Enter your choice: ");
+        Menu.display();
     }
 
-    public void processUserChoice(Integer choice) {
+    public boolean processUserChoice() {
+        int choice = ConsoleReader.getInstance().readInteger();
         switch (choice) {
-            case 1:
+            case Menu.VIEW_TRANSACTIONS:
                 transactionManager.viewRecentTransactions();
-                break;
-            case 2:
+                return false;
+            case Menu.ADD_NEW_TRANSACTION:
                 transactionManager.addTransaction();
-                break;
-            case 3:
+                return false;
+            case Menu.EDIT_TRANSACTION:
                 transactionManager.editOrDeleteTransaction();
-                break;
-            case 4:
+                return false;
+            case Menu.VIEW_CATEGORIES:
                 categoryManager.viewCategories();
-                break;
-            case 5:
+                return false;
+            case Menu.ADD_NEW_CATEGORY:
                 categoryManager.addNewCategory();
-                break;
-            case 6:
+                return false;
+            case Menu.SET_BUDGET:
                 budgetTracker.setBudget();
-                break;
-            case 7:
+                return false;
+            case Menu.TRACK_PROGRESS:
                 budgetTracker.trackProgress();
-                break;
+                return false;
+            case Menu.EXIT_CHOICE:
+                System.out.println("Exiting MyExpenseApp Application. Goodbye!");
+                return true;
             default:
                 System.out.println("Invalid choice. Please enter a number from 1 to 8.");
+                return false;
         }
     }
 }

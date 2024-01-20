@@ -1,3 +1,5 @@
+import utils.ConsoleReader;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,7 +8,7 @@ public class BudgetTracker {
 
     public BudgetTracker() {
 
-        this.database = new Database();
+        this.database = Database.getInstance();
     }
     public void setBudget() {
         Scanner scanner = new Scanner(System.in);

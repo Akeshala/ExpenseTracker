@@ -1,33 +1,39 @@
+import utils.ConsoleReader;
+
 import java.util.ArrayList;
 
 public class Database {
+
+    private static Database instance;
     private ArrayList<Transaction> transactions;
     private ArrayList<BudgetCategory> budgetCategories;
 
-    public Database() {
-        this.transactions = new ArrayList<>();
-        this.budgetCategories = new ArrayList<>();
+    private Database() {
+        transactions = new ArrayList<>();
+        budgetCategories = new ArrayList<>();
         addPresetTransactions();
         addPresetCategories();
     }
 
-    public ArrayList<Transaction> getTransactions() {
+    public static synchronized Database getInstance() {
+        if (instance == null)
+            instance = new Database();
+        return instance;
+    }
 
-        return this.transactions;
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
     }
 
     public ArrayList<BudgetCategory> getBudgetCategories() {
-
-        return this.budgetCategories;
+        return budgetCategories;
     }
 
     public void addTransaction(Transaction transaction) {
-
         transactions.add(transaction);
     }
 
     public void addBudgetCategory(BudgetCategory category) {
-
         budgetCategories.add(category);
     }
 
