@@ -23,13 +23,10 @@ public class TransactionManager {
         String category = reader.readString();
         System.out.print("Enter amount: Rs.");
         double amount = reader.readDouble();
-        reader.readString();
         System.out.print("Is it an income? (true/false): ");
         boolean isIncome = reader.readBoolean();
-        reader.readString();
         System.out.print("Is it recurring? (true/false): ");
         boolean isRecurring = reader.readBoolean();
-        reader.readString();
         System.out.print("Enter note (optional): ");
         String note = reader.readString();
 
@@ -85,13 +82,10 @@ public class TransactionManager {
         String newCategory = reader.readString();
         System.out.print("Enter new amount (current: Rs." + transaction.getAmount() + "): Rs.");
         double newAmount = reader.readDouble();
-        reader.readString();
         System.out.print("Is it an income? (true/false) (current: " + transaction.isIncome() + "): ");
         boolean newIsIncome = reader.readBoolean();
-        reader.readString();
         System.out.print("Is it recurring? (true/false) (current: " + transaction.isRecurring() + "): ");
         boolean newIsRecurring = reader.readBoolean();
-        reader.readString();
         System.out.print("Enter new note (current: " + transaction.getNote() + "): ");
         String newNote = reader.readString();
 
