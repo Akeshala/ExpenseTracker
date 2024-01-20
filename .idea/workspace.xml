@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="my expense app refactoring">
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/ConsoleReader.java" afterDir="false" />
+    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="added Menu and ConsoleReader">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BudgetTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BudgetTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CategoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyExpenseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyExpenseApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ConsoleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ConsoleReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704640743059</updated>
       <workItem from="1705162431187" duration="14246000" />
-      <workItem from="1705720395916" duration="13360000" />
+      <workItem from="1705720395916" duration="15843000" />
     </task>
     <task id="LOCAL-00001" summary="removed new">
       <option name="closed" value="true" />
@@ -105,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705721448575</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added Menu and ConsoleReader">
+      <option name="closed" value="true" />
+      <created>1705756936568</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705756936568</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +119,7 @@
     <MESSAGE value="removed new" />
     <MESSAGE value="singleton pattern" />
     <MESSAGE value="my expense app refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="my expense app refactoring" />
+    <MESSAGE value="added Menu and ConsoleReader" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Menu and ConsoleReader" />
   </component>
 </project>

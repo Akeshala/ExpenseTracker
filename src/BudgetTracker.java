@@ -7,11 +7,11 @@ public class BudgetTracker {
     private Database database;
 
     public BudgetTracker() {
-
         this.database = Database.getInstance();
     }
+
     public void setBudget() {
-        Scanner scanner = new Scanner(System.in);
+        ConsoleReader reader = ConsoleReader.getInstance();
 
         System.out.println("Budget Categories:");
         ArrayList<BudgetCategory> budgetCategories = database.getBudgetCategories();
@@ -20,11 +20,11 @@ public class BudgetTracker {
         }
 
         System.out.print("Enter the number of the category to set the budget: ");
-        int categoryNumber = scanner.nextInt();
+        int categoryNumber = reader.readInteger();
 
         if (categoryNumber >= 1 && categoryNumber <= budgetCategories.size()) {
             System.out.print("Enter the new budget amount for the selected category: Rs.");
-            double newBudgetAmount = scanner.nextDouble();
+            double newBudgetAmount = reader.readDouble();
 
             BudgetCategory selectedCategory = budgetCategories.get(categoryNumber - 1);
             selectedCategory.setAmount(newBudgetAmount);

@@ -19,12 +19,44 @@ public class ConsoleReader {
 
     public int readInteger() {
         while (true) {
-            System.out.print("Enter your choice: ");
             try {
                 return scanner.nextInt();
             } catch (java.util.InputMismatchException e) {
                 scanner.nextLine();
-                System.out.println("Invalid input!. Please enter a valid integer.");
+                System.out.print("Invalid input!. Please enter a valid integer: ");
+            }
+        }
+    }
+
+    public String readString() {
+        while (true) {
+            try {
+                return scanner.nextLine();
+            } catch (java.util.InputMismatchException e) {
+                scanner.nextLine();
+                System.out.print("Invalid input!. Please enter a valid text: ");
+            }
+        }
+    }
+
+    public double readDouble() {
+        while (true) {
+            try {
+                return scanner.nextDouble();
+            } catch (java.util.InputMismatchException e) {
+                scanner.nextLine();
+                System.out.print("Invalid input!. Please enter a valid number: ");
+            }
+        }
+    }
+
+    public boolean readBoolean() {
+        while (true) {
+            try {
+                return scanner.nextBoolean();
+            } catch (java.util.InputMismatchException e) {
+                scanner.nextLine();
+                System.out.print("Invalid input!. Please enter a valid boolean value: ");
             }
         }
     }

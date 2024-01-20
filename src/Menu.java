@@ -19,6 +19,7 @@ public class Menu {
         System.out.println(SET_BUDGET + ". Set Budget");
         System.out.println(TRACK_PROGRESS + ". Track Progress");
         System.out.println(EXIT_CHOICE + ". Exit");
+        System.out.print("Enter your choice: ");
     }
 
 }

@@ -1,3 +1,5 @@
+import utils.ConsoleReader;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,20 +18,20 @@ public class TransactionManager {
     }
 
     public void addTransaction() {
-        Scanner scanner = new Scanner(System.in);
+        ConsoleReader reader = ConsoleReader.getInstance();
         System.out.print("Enter category: ");
-        String category = scanner.nextLine();
+        String category = reader.readString();
         System.out.print("Enter amount: Rs.");
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
+        double amount = reader.readDouble();
+        reader.readString();
         System.out.print("Is it an income? (true/false): ");
-        boolean isIncome = scanner.nextBoolean();
-        scanner.nextLine();
+        boolean isIncome = reader.readBoolean();
+        reader.readString();
         System.out.print("Is it recurring? (true/false): ");
-        boolean isRecurring = scanner.nextBoolean();
-        scanner.nextLine();
+        boolean isRecurring = reader.readBoolean();
+        reader.readString();
         System.out.print("Enter note (optional): ");
-        String note = scanner.nextLine();
+        String note = reader.readString();
 
         Transaction newTransaction = new Transaction(category, amount, isIncome, isRecurring, note);
         database.addTransaction(newTransaction);
@@ -37,8 +39,6 @@ public class TransactionManager {
         System.out.println("Transaction added successfully.");
     }
     public void editOrDeleteTransaction() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Existing Transactions:");
         ArrayList<Transaction> transactions = database.getTransactions();
         for (int i = 0; i < transactions.size(); i++) {
@@ -46,7 +46,7 @@ public class TransactionManager {
         }
 
         System.out.print("Enter the number of the transaction to edit or delete: ");
-        int transactionNumber = scanner.nextInt();
+        int transactionNumber = ConsoleReader.getInstance().readInteger();
 
         if (transactionNumber >= 1 && transactionNumber <= transactions.size()) {
             Transaction selectedTransaction = transactions.get(transactionNumber - 1);
@@ -55,7 +55,7 @@ public class TransactionManager {
             System.out.println("1. Edit Transaction");
             System.out.println("2. Delete Transaction");
             System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = ConsoleReader.getInstance().readInteger();
 
             switch (choice) {
                 case 1:
@@ -78,22 +78,22 @@ public class TransactionManager {
     }
 
     private void editTransaction(Transaction transaction) {
-        Scanner scanner = new Scanner(System.in);
+        ConsoleReader reader = ConsoleReader.getInstance();
 
         System.out.println("Editing Transaction:");
         System.out.print("Enter new category (current: " + transaction.getCategory() + "): ");
-        String newCategory = scanner.nextLine();
+        String newCategory = reader.readString();
         System.out.print("Enter new amount (current: Rs." + transaction.getAmount() + "): Rs.");
-        double newAmount = scanner.nextDouble();
-        scanner.nextLine();
+        double newAmount = reader.readDouble();
+        reader.readString();
         System.out.print("Is it an income? (true/false) (current: " + transaction.isIncome() + "): ");
-        boolean newIsIncome = scanner.nextBoolean();
-        scanner.nextLine();
+        boolean newIsIncome = reader.readBoolean();
+        reader.readString();
         System.out.print("Is it recurring? (true/false) (current: " + transaction.isRecurring() + "): ");
-        boolean newIsRecurring = scanner.nextBoolean();
-        scanner.nextLine();
+        boolean newIsRecurring = reader.readBoolean();
+        reader.readString();
         System.out.print("Enter new note (current: " + transaction.getNote() + "): ");
-        String newNote = scanner.nextLine();
+        String newNote = reader.readString();
 
         transaction.setCategory(newCategory);
         transaction.setAmount(newAmount);
