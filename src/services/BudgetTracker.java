@@ -1,7 +1,11 @@
+package services;
+
+import models.BudgetCategory;
+import models.Transaction;
+import resources.Database;
 import utils.ConsoleReader;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BudgetTracker {
     private Database database;

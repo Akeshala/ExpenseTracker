@@ -1,7 +1,10 @@
+package services;
+
+import models.BudgetCategory;
+import resources.Database;
 import utils.ConsoleReader;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CategoryManager {
     private Database database;

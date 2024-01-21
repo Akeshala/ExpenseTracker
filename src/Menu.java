@@ -12,8 +12,8 @@ public class Menu {
     public static void display() {
         System.out.println("Expense Tracker Menu:");
         System.out.println(VIEW_TRANSACTIONS + ". View Recent Transactions");
-        System.out.println(ADD_NEW_TRANSACTION + ". Add New Transaction");
-        System.out.println(EDIT_TRANSACTION + ". Edit/Delete Transaction");
+        System.out.println(ADD_NEW_TRANSACTION + ". Add New models.Transaction");
+        System.out.println(EDIT_TRANSACTION + ". Edit/Delete models.Transaction");
         System.out.println(VIEW_CATEGORIES + ". View Categories");
         System.out.println(ADD_NEW_CATEGORY + ". Add New Category");
         System.out.println(SET_BUDGET + ". Set Budget");

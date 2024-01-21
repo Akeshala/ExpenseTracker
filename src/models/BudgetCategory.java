@@ -1,5 +1,6 @@
+package models;
 
-class BudgetCategory {
+public class BudgetCategory {
     private String name;
     private double amount;
 

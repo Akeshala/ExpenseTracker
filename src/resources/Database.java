@@ -1,4 +1,7 @@
-import utils.ConsoleReader;
+package resources;
+
+import models.BudgetCategory;
+import models.Transaction;
 
 import java.util.ArrayList;
 

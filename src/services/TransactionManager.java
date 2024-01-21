@@ -1,7 +1,10 @@
+package services;
+
+import models.Transaction;
+import resources.Database;
 import utils.ConsoleReader;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class TransactionManager {
     private Database database;
@@ -33,7 +36,7 @@ public class TransactionManager {
         Transaction newTransaction = new Transaction(category, amount, isIncome, isRecurring, note);
         database.addTransaction(newTransaction);
 
-        System.out.println("Transaction added successfully.");
+        System.out.println("models.Transaction added successfully.");
     }
     public void editOrDeleteTransaction() {
         System.out.println("Existing Transactions:");
@@ -48,9 +51,9 @@ public class TransactionManager {
         if (transactionNumber >= 1 && transactionNumber <= transactions.size()) {
             Transaction selectedTransaction = transactions.get(transactionNumber - 1);
 
-            System.out.println("Selected Transaction: " + getTransactionDetails(selectedTransaction));
-            System.out.println("1. Edit Transaction");
-            System.out.println("2. Delete Transaction");
+            System.out.println("Selected models.Transaction: " + getTransactionDetails(selectedTransaction));
+            System.out.println("1. Edit models.Transaction");
+            System.out.println("2. Delete models.Transaction");
             System.out.print("Enter your choice: ");
             int choice = ConsoleReader.getInstance().readInteger();
 
@@ -77,7 +80,7 @@ public class TransactionManager {
     private void editTransaction(Transaction transaction) {
         ConsoleReader reader = ConsoleReader.getInstance();
 
-        System.out.println("Editing Transaction:");
+        System.out.println("Editing models.Transaction:");
         System.out.print("Enter new category (current: " + transaction.getCategory() + "): ");
         String newCategory = reader.readString();
         System.out.print("Enter new amount (current: Rs." + transaction.getAmount() + "): Rs.");
@@ -95,11 +98,11 @@ public class TransactionManager {
         transaction.setIsRecurring(newIsRecurring);
         transaction.setNote(newNote);
 
-        System.out.println("Transaction edited successfully.");
+        System.out.println("models.Transaction edited successfully.");
     }
 
     private void deleteTransaction(Transaction transaction) {
         database.deleteTransaction(transaction);
-        System.out.println("Transaction deleted successfully.");
+        System.out.println("models.Transaction deleted successfully.");
     }
 }

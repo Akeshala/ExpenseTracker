@@ -1,4 +1,6 @@
-class Transaction {
+package models;
+
+public class Transaction {
     private String category;
     private double amount;
     private boolean isIncome;

@@ -1,3 +1,6 @@
+import services.BudgetTracker;
+import services.CategoryManager;
+import services.TransactionManager;
 import utils.ConsoleReader;
 
 public class MyExpenseApp {
