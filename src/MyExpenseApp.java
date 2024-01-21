@@ -1,19 +1,19 @@
-import services.BudgetTracker;
-import services.CategoryManager;
-import services.TransactionManager;
+import services.BudgetService;
+import services.CategoryService;
+import services.TransactionService;
 import utils.ConsoleReader;
 
 public class MyExpenseApp {
 
     private static MyExpenseApp instance;
-    private TransactionManager transactionManager;
-    private CategoryManager categoryManager;
-    private BudgetTracker budgetTracker;
+    private TransactionService transactionService;
+    private CategoryService categoryService;
+    private BudgetService budgetService;
 
     private MyExpenseApp() {
-        transactionManager = new TransactionManager();
-        categoryManager = new CategoryManager();
-        budgetTracker = new BudgetTracker();
+        transactionService = new TransactionService();
+        categoryService = new CategoryService();
+        budgetService = new BudgetService();
     }
 
     public static synchronized MyExpenseApp getInstance() {
@@ -30,25 +30,25 @@ public class MyExpenseApp {
         int choice = ConsoleReader.getInstance().readInteger();
         switch (choice) {
             case Menu.VIEW_TRANSACTIONS:
-                transactionManager.viewRecentTransactions();
+                transactionService.viewRecentTransactions();
                 return false;
             case Menu.ADD_NEW_TRANSACTION:
-                transactionManager.addTransaction();
+                transactionService.addTransaction();
                 return false;
             case Menu.EDIT_TRANSACTION:
-                transactionManager.editOrDeleteTransaction();
+                transactionService.editOrDeleteTransaction();
                 return false;
             case Menu.VIEW_CATEGORIES:
-                categoryManager.viewCategories();
+                categoryService.viewCategories();
                 return false;
             case Menu.ADD_NEW_CATEGORY:
-                categoryManager.addNewCategory();
+                categoryService.addNewCategory();
                 return false;
             case Menu.SET_BUDGET:
-                budgetTracker.setBudget();
+                budgetService.setBudget();
                 return false;
             case Menu.TRACK_PROGRESS:
-                budgetTracker.trackProgress();
+                budgetService.trackProgress();
                 return false;
             case Menu.EXIT_CHOICE:
                 System.out.println("Exiting MyExpenseApp Application. Goodbye!");

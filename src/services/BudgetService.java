@@ -7,10 +7,10 @@ import utils.ConsoleReader;
 
 import java.util.ArrayList;
 
-public class BudgetTracker {
+public class BudgetService {
     private Database database;
 
-    public BudgetTracker() {
+    public BudgetService() {
         this.database = Database.getInstance();
     }
 

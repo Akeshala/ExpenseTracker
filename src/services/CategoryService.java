@@ -6,10 +6,10 @@ import utils.ConsoleReader;
 
 import java.util.ArrayList;
 
-public class CategoryManager {
+public class CategoryService {
     private Database database;
 
-    public CategoryManager() {
+    public CategoryService() {
         this.database = Database.getInstance();
     }
 

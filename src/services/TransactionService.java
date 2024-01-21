@@ -6,9 +6,9 @@ import utils.ConsoleReader;
 
 import java.util.ArrayList;
 
-public class TransactionManager {
+public class TransactionService {
     private Database database;
-    public TransactionManager() {
+    public TransactionService() {
         this.database = Database.getInstance();;
     }
 
