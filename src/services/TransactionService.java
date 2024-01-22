@@ -1,10 +1,17 @@
 package services;
 
-import models.Transaction;
+import factory.ExpenseTransactionFactory;
+import factory.IncomeTransactionFactory;
+import factory.TransactionFactory;
+import models1.Category;
+import models1.Income;
+import models1.Money;
+import models1.Transaction;
 import resources.Database;
 import utils.ConsoleReader;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TransactionService {
     private Database database;
@@ -33,7 +40,19 @@ public class TransactionService {
         System.out.print("Enter note (optional): ");
         String note = reader.readString();
 
-        Transaction newTransaction = new Transaction(category, amount, isIncome, isRecurring, note);
+        if (isIncome) {
+            IncomeTransactionFactory.init();
+        } else {
+            ExpenseTransactionFactory.init();
+        }
+        TransactionFactory transactionFactory =  TransactionFactory.getFactory();
+        Transaction newTransaction = transactionFactory.getTransaction(
+                (int) amount, // id
+                new Money(amount),
+                new Category(34, category),
+                note,
+                isRecurring
+        );
         database.addTransaction(newTransaction);
 
         System.out.println("models.Transaction added successfully.");
@@ -73,8 +92,8 @@ public class TransactionService {
     }
 
     private String getTransactionDetails(Transaction transaction) {
-        return transaction.getCategory() + ": Rs." + transaction.getAmount() +
-                " (Income: " + transaction.isIncome() + ", Recurring: " + transaction.isRecurring() + ")";
+        return transaction.getCategory() + ": " + transaction.getDisplayAmount() +
+                " (Income: " + (transaction instanceof Income) + ", Recurring: " + transaction.getIsRecurring() + ")";
     }
 
     private void editTransaction(Transaction transaction) {
@@ -83,18 +102,19 @@ public class TransactionService {
         System.out.println("Editing models.Transaction:");
         System.out.print("Enter new category (current: " + transaction.getCategory() + "): ");
         String newCategory = reader.readString();
-        System.out.print("Enter new amount (current: Rs." + transaction.getAmount() + "): Rs.");
+        System.out.print("Enter new amount (current: " + transaction.getDisplayAmount() + "): Rs.");
         double newAmount = reader.readDouble();
-        System.out.print("Is it an income? (true/false) (current: " + transaction.isIncome() + "): ");
-        boolean newIsIncome = reader.readBoolean();
-        System.out.print("Is it recurring? (true/false) (current: " + transaction.isRecurring() + "): ");
+        System.out.print("Is it recurring? (true/false) (current: " + transaction.getIsRecurring() + "): ");
         boolean newIsRecurring = reader.readBoolean();
         System.out.print("Enter new note (current: " + transaction.getNote() + "): ");
         String newNote = reader.readString();
 
-        transaction.setCategory(newCategory);
-        transaction.setAmount(newAmount);
-        transaction.setIsIncome(newIsIncome);
+        Random random = new Random();
+        int randomNumber = random.nextInt(1000 - 5 + 1) + 5;
+        transaction.setCategory(new Category(randomNumber, newCategory)); // set by ID
+
+        Money money = new Money(newAmount);
+        transaction.setAmount(money);
         transaction.setIsRecurring(newIsRecurring);
         transaction.setNote(newNote);
 

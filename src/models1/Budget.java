@@ -17,11 +17,11 @@ public class Budget{
         entries.add(new BudgetEntry(id, category, value));
     }
 
-    public float getCategoryBudget(Category category) {
-        float total = 0;
+    public double getCategoryBudget(Category category) {
+        double total = 0;
         for (BudgetEntry i: entries){
             if (i.getCategoryType() == category) {
-                total = total + i.getTotal();
+                total = (total + i.getTotal());
             }
         }
         return total;

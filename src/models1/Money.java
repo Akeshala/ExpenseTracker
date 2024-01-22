@@ -1,10 +1,14 @@
 package models1;
 
 public class Money {
-    private float value;
+    private double value;
 
-    public Money(float value) {
+    public Money(double value) {
         this.value = value;
     }
-    public float getValue(){return value;}
+    public double getValue(){return value;}
+
+    public String getRupee() {
+        return "Rs. " + value;
+    }
 }

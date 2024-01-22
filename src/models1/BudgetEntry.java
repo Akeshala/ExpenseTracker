@@ -11,6 +11,6 @@ public class BudgetEntry {
         this.total = total;
     }
     public Category getCategoryType(){return category;}
-    public float getTotal(){return total.getValue();}
+    public double getTotal(){return total.getValue();}
     public Integer getId(){return id;}
 }

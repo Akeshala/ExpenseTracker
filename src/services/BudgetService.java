@@ -1,7 +1,8 @@
 package services;
 
 import models.BudgetCategory;
-import models.Transaction;
+import models1.Expense;
+import models1.Transaction;
 import resources.Database;
 import utils.ConsoleReader;
 
@@ -58,8 +59,8 @@ public class BudgetService {
         double totalSpent = 0;
 
         for (Transaction transaction : database.getTransactions()) {
-            if (transaction.getCategory().equals(categoryName) && transaction.isExpense()) {
-                totalSpent += transaction.getAmount();
+            if (transaction.getCategory().getName().equals(categoryName) && (transaction instanceof Expense)) {
+                totalSpent += transaction.getAmount().getValue();
             }
         }
 

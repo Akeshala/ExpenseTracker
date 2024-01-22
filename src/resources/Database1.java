@@ -18,8 +18,7 @@ public class Database1 {
     }
 
     public static synchronized Database1 getInstance() {
-        if (instance == null)
-            instance = new Database1();
+        if (instance == null) instance = new Database1();
         return instance;
     }
 
