@@ -11,13 +11,13 @@ public class Menu {
 
     public static void display() {
         System.out.println("Expense Tracker Menu:");
-        System.out.println(VIEW_TRANSACTIONS + ". View Recent Transactions");
-        System.out.println(ADD_NEW_TRANSACTION + ". Add New models.Transaction");
-        System.out.println(EDIT_TRANSACTION + ". Edit/Delete models.Transaction");
-        System.out.println(VIEW_CATEGORIES + ". View Categories");
-        System.out.println(ADD_NEW_CATEGORY + ". Add New Category");
-        System.out.println(SET_BUDGET + ". Set Budget");
-        System.out.println(TRACK_PROGRESS + ". Track Progress");
+        System.out.println(VIEW_TRANSACTIONS + ". View recent transactions");
+        System.out.println(ADD_NEW_TRANSACTION + ". Add a new transaction");
+        System.out.println(EDIT_TRANSACTION + ". Edit/Delete a transaction");
+        System.out.println(VIEW_CATEGORIES + ". View categories");
+        System.out.println(ADD_NEW_CATEGORY + ". Add new category");
+        System.out.println(SET_BUDGET + ". Set budget");
+        System.out.println(TRACK_PROGRESS + ". Track progress");
         System.out.println(EXIT_CHOICE + ". Exit");
         System.out.print("Enter your choice: ");
     }

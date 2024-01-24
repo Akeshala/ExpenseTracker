@@ -1,7 +1,9 @@
-package models1;
+package models;
 
 public class Money {
-    private double value;
+    private final double value;
+
+    public static final String ZERO = "Rs.0";
 
     public Money(double value) {
         this.value = value;

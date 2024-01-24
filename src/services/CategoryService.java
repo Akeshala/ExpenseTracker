@@ -1,8 +1,10 @@
 package services;
 
-import models1.Category;
-import resources.Database1;
+import models.Budget;
+import models.Category;
+import models.Money;
 import utils.ConsoleReader;
+import utils.DatabaseHandler;
 
 import java.util.ArrayList;
 
@@ -10,35 +12,25 @@ public class CategoryService {
 
     public static void viewCategories() {
         System.out.println("Budget Categories:");
-        Database1 database1 = Database1.getInstance();
-        ArrayList<Category> categories = database1.getCategories();
+        ArrayList<Category> categories = DatabaseHandler.getCategories();
         for (int i = 0; i < categories.size(); i++) {
-            System.out.println((i + 1) + ". " + categories.get(i).getName() + ": Rs." + categories.get(i).getAmount());
+            int BudgetID = categories.get(i).getBudgetID();
+            Budget Budget = DatabaseHandler.getBudgetByID(BudgetID);
+            String budget = Money.ZERO;
+            if (Budget != null) {
+                budget = Budget.getDisplayAmount();
+            }
+            System.out.println((i + 1) + ". " + categories.get(i).getName() + ": " + budget);
         }
-
-        System.out.print("Enter the number of the category to reset the budget (Enter 0 to skip the Menu): ");
-        int categoryNumber = ConsoleReader.getInstance().readInteger();
-
-        if (categoryNumber > 0 && categoryNumber <= categories.size()) {
-            Category selectedCategory = categories.get(categoryNumber - 1);
-            selectedCategory.setAmount(0);
-
-            System.out.println("Budget for " + selectedCategory.getName() + " reset to Rs.0.");
-        } else if (categoryNumber != 0) {
-            System.out.println("Invalid category number. Please enter a valid number.");
-        }
+        System.out.println();
     }
 
     public static void addNewCategory() {
         ConsoleReader reader = ConsoleReader.getInstance();
-        Database1 database1 = Database1.getInstance();
         System.out.print("Enter the name of the new category: ");
         String categoryName = reader.readString();
-
-        Category newCategory = new Category(categoryName);
-        database1.addCategory(newCategory);
-
-        System.out.println("New category added successfully.");
+        DatabaseHandler.addCategory(categoryName);
+        System.out.println("New category added successfully.\n");
     }
 }
 

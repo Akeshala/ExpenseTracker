@@ -1,8 +1,6 @@
 package factory;
 
-import models1.Category;
-import models1.Money;
-import models1.Transaction;
+import models.Transaction;
 
 public abstract class TransactionFactory {
 
@@ -17,7 +15,7 @@ public abstract class TransactionFactory {
     }
 
     public abstract Transaction getTransaction(
-            Money amount,
+            double amount,
             int categoryID,
             String note,
             Boolean isRecurring

@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="refactoring transactions">
+    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="refactoring transaction service and category service">
+      <change afterPath="$PROJECT_DIR$/src/utils/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyExpenseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyExpenseApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/factory/ExpenseTransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/factory/ExpenseTransactionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/factory/IncomeTransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/factory/IncomeTransactionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/factory/TransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/factory/TransactionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models1/BudgetEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models1/BudgetEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models1/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models1/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models1/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models1/Expense.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models1/Income.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models1/Income.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models1/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models1/Money.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models1/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models1/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/Database1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/Database1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/BudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/BudgetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TransactionService.java" afterDir="false" />
     </list>
@@ -26,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,20 +54,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/models1" />
@@ -97,6 +101,7 @@
       <updated>1704640743059</updated>
       <workItem from="1705162431187" duration="14246000" />
       <workItem from="1705720395916" duration="15843000" />
+      <workItem from="1706113571723" duration="10566000" />
     </task>
     <task id="LOCAL-00001" summary="removed new">
       <option name="closed" value="true" />
@@ -170,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705894166553</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactoring transaction service and category service">
+      <option name="closed" value="true" />
+      <created>1706067875590</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706067875590</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +199,8 @@
     <MESSAGE value="refactoring &#10;+  new models" />
     <MESSAGE value="refactoring + new models" />
     <MESSAGE value="refactoring transactions" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring transactions" />
+    <MESSAGE value="refactoring transaction service and category service" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring transaction service and category service" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

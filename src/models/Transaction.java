@@ -1,69 +1,71 @@
 package models;
 
-public class Transaction {
-    private String category;
-    private double amount;
-    private boolean isIncome;
-    private boolean isRecurring;
-    private String note;
+import resources.Database;
 
-    public Transaction(String category, double amount, boolean isIncome, boolean isRecurring, String note) {
-        this.category = category;
-        this.amount = amount;
-        this.isIncome = isIncome;
-        this.isRecurring = isRecurring;
-        this.note = note;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
+public abstract class Transaction {
+    protected Integer id;
+    protected Money amount;
+    protected Integer categoryID;
+    protected String note;
+    protected Boolean isRecurring;
+    protected Long timestamp;
+
+    public Integer getId(){
+        return id;
     }
-
-    public String getCategory() {
-        return category;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
-    public double getAmount() {
+    public Money getAmount(){
         return amount;
     }
-
-    public boolean isExpense() {
-        return !isIncome;
+    public String getDisplayAmount(){
+        return amount.getRupee();
+    }
+    public void setAmount(double amount){
+        this.amount = new Money(amount);
+    }
+    public Category getCategory(){
+        Database database = Database.getInstance();
+        return database.getCategoryByID(categoryID);
     }
 
-    public boolean isIncome() {
-
-        return isIncome;
+    public Integer getCategoryID() {
+        return categoryID;
     }
 
-    public void setIsIncome(boolean isIncome) {
-
-        this.isIncome = isIncome;
+    public void setCategory(int categoryID){
+        this.categoryID = categoryID;
     }
-
-    public boolean isRecurring() {
-
-        return isRecurring;
-    }
-
-    public String getNote() {
-
+    public String getNote(){
         return note;
     }
-
-    public void setCategory(String category) {
-
-        this.category = category;
+    public void setNote(String note){
+        this.note = note;
     }
-
-    public void setAmount(double amount) {
-
-        this.amount = amount;
+    public Boolean getIsRecurring(){
+        return isRecurring;
     }
-
-    public void setIsRecurring(boolean isRecurring) {
-
+    public void setIsRecurring(Boolean isRecurring){
         this.isRecurring = isRecurring;
     }
-
-    public void setNote(String note) {
-
-        this.note = note;
+    public String getDateTime(){
+        Instant instant = Instant.ofEpochMilli(timestamp);
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("yyyy-MM-dd HH:mm:ss")
+                .withZone(ZoneId.systemDefault());
+        return formatter.format(instant);
+    }
+    public void setDateTime(Long timestamp){
+        this.timestamp = timestamp;
+    }
+    public String toString() {
+        return this.getCategory().getName() + ": " + this.getDisplayAmount() +
+                " (Income: " + (this instanceof Income) + ", Recurring: " + this.getIsRecurring() +
+                ", Time: " + this.getDateTime() + ")";
     }
 }

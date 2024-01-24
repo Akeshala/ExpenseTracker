@@ -1,6 +1,7 @@
 package factory;
 
-import models1.*;
+import models.Income;
+import models.Transaction;
 
 public class IncomeTransactionFactory extends TransactionFactory {
 
@@ -9,7 +10,7 @@ public class IncomeTransactionFactory extends TransactionFactory {
     }
 
     @Override
-    public Transaction getTransaction(Money amount, int categoryID, String note, Boolean isRecurring) {
+    public Transaction getTransaction(double amount, int categoryID, String note, Boolean isRecurring) {
         return new Income(amount, categoryID, note, isRecurring);
     }
 }

@@ -1,70 +1,97 @@
 package resources;
 
-import models.BudgetCategory;
-import models1.Transaction;
+import models.Transaction;
+import models.Budget;
+import models.Category;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Database {
 
     private static Database instance;
-    private ArrayList<Transaction> transactions;
-    private ArrayList<BudgetCategory> budgetCategories;
+    private final Map<Integer, Transaction> transactions;
+    private final Map<Integer, Category> categories;
+    private final Map<Integer, Budget> budgets;
+    private int transactionCounter = 0;
+    private int categoryCounter = 0;
+    private int budgetCounter = 0;
 
     private Database() {
-        transactions = new ArrayList<>();
-        budgetCategories = new ArrayList<>();
-//        addPresetTransactions();
+        transactions = new HashMap<>();
+        categories = new HashMap<>();
+        budgets = new HashMap<>();
         addPresetCategories();
     }
 
     public static synchronized Database getInstance() {
-        if (instance == null)
-            instance = new Database();
+        if (instance == null) instance = new Database();
         return instance;
     }
 
     public ArrayList<Transaction> getTransactions() {
-        return transactions;
+        return new ArrayList<>(transactions.values());
     }
 
-    public ArrayList<BudgetCategory> getBudgetCategories() {
-        return budgetCategories;
+    public Transaction getTransactionByID(int id) {
+        return transactions.get(id);
     }
 
     public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
+        int id = transactionCounter++;
+        transaction.setId(id);
+        transactions.put(id, transaction);
     }
 
-    public void addBudgetCategory(BudgetCategory category) {
-        budgetCategories.add(category);
+    public void setTransaction(int id, Transaction transaction) {
+        transactions.put(id, transaction);
     }
 
-    public void deleteTransaction(Transaction transaction) {
-        transactions.remove(transaction);
+    public void deleteTransaction(int id) {
+        transactions.remove(id);
+    }
+
+    public ArrayList<Category> getCategories() {
+        return new ArrayList<>(categories.values());
+    }
+
+    public Category getCategoryByID(int id) {
+        return categories.get(id);
+    }
+
+    public void addCategory(Category category) {
+        int id = categoryCounter++;
+        category.setId(id);
+        categories.put(id, category);
+    }
+
+    public void deleteCategory(int id) {
+        categories.remove(id);
     }
 
     private void addPresetCategories() {
-        budgetCategories.add(new BudgetCategory("Salary", 500000));
-        budgetCategories.add(new BudgetCategory("Clothes", 10000));
-        budgetCategories.add(new BudgetCategory("Fuel", 50000));
-        budgetCategories.add(new BudgetCategory("Gifts", 10000));
-        budgetCategories.add(new BudgetCategory("Shopping", 50000));
-        budgetCategories.add(new BudgetCategory("Kids", 15000));
-        budgetCategories.add(new BudgetCategory("Sports", 10000));
-        budgetCategories.add(new BudgetCategory("Travel", 12000));
-        budgetCategories.add(new BudgetCategory("Entertainment", 10000));
+        addCategory(new Category("Salary"));
+        addCategory(new Category("Clothes"));
+        addCategory(new Category("Fuel"));
+        addCategory(new Category("Gifts"));
     }
 
-//    private void addPresetTransactions() {
-//        transactions.add(new Transaction("Salary", 500000.0, true, false, "Monthly salary"));
-//        transactions.add(new Transaction("Clothes", 5000.0, false, false, "New shirt"));
-//        transactions.add(new Transaction("Fuel", 5000.0, false, true, "Weekly fuel"));
-//        transactions.add(new Transaction("Gifts", 3000.0, false, false, "Birthday gift"));
-//        transactions.add(new Transaction("Shopping", 1500.0, false, false, "Groceries"));
-//        transactions.add(new Transaction("Kids", 2000.0, false, false, "Toys for kids"));
-//        transactions.add(new Transaction("Sports", 4000.0, false, false, "Gym membership"));
-//        transactions.add(new Transaction("Travel", 2000.0, false, false, "Weekend getaway"));
-//        transactions.add(new Transaction("Entertainment", 2000.0, false, true, "Movie night"));
-//    }
+    public ArrayList<Budget> getBudgets() {
+        return new ArrayList<>(budgets.values());
+    }
+
+    public void addBudget(Budget budget) {
+        int id = budgetCounter++;
+        budget.setId(id);
+        budgets.put(id, budget);
+    }
+
+    public Budget getBudgetByID(int id) {
+        return budgets.get(id);
+    }
+
+    public void setBudget(int id, Budget budget) {
+        budgets.put(id, budget);
+    }
 }
