@@ -1,11 +1,9 @@
 package models1;
 
-import java.time.LocalDateTime;
 public class Expense extends Transaction{
-    public Expense(Integer id, Money amount, Category category, String note, Boolean isRecurring){
-        this.id = id;
+    public Expense(Money amount, int categoryID, String note, Boolean isRecurring){
         this.amount = amount;
-        this.category = category;
+        this.categoryID = categoryID;
         this.note = note;
         this.isRecurring = isRecurring;
         this.timestamp = System.currentTimeMillis();

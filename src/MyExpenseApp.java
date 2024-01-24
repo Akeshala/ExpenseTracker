@@ -6,12 +6,10 @@ import utils.ConsoleReader;
 public class MyExpenseApp {
 
     private static MyExpenseApp instance;
-    private TransactionService transactionService;
     private CategoryService categoryService;
     private BudgetService budgetService;
 
     private MyExpenseApp() {
-        transactionService = new TransactionService();
         categoryService = new CategoryService();
         budgetService = new BudgetService();
     }
@@ -30,13 +28,13 @@ public class MyExpenseApp {
         int choice = ConsoleReader.getInstance().readInteger();
         switch (choice) {
             case Menu.VIEW_TRANSACTIONS:
-                transactionService.viewRecentTransactions();
+                TransactionService.viewRecentTransactions();
                 return false;
             case Menu.ADD_NEW_TRANSACTION:
-                transactionService.addTransaction();
+                TransactionService.addTransaction();
                 return false;
             case Menu.EDIT_TRANSACTION:
-                transactionService.editOrDeleteTransaction();
+                TransactionService.editOrDeleteTransaction();
                 return false;
             case Menu.VIEW_CATEGORIES:
                 categoryService.viewCategories();

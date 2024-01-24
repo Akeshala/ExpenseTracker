@@ -1,23 +1,35 @@
 package models1;
 
+import resources.Database1;
+
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-public class Transaction {
+public abstract class Transaction {
     protected Integer id;
     protected Money amount;
-    protected Category category;
+    protected Integer categoryID;
     protected String note;
     protected Boolean isRecurring;
     protected Long timestamp;
 
-    public Money getAmount(){return amount;}
+    public Integer getId(){return id;}
+    public void setId(Integer id) {this.id = id;}
 
+    public Money getAmount(){return amount;}
     public String getDisplayAmount(){return amount.getRupee();}
-    public Category getCategory(){return category;}
+    public void setAmount(Money amount){this.amount = amount;}
+    public Category getCategory(){
+        Database1 database1 = Database1.getInstance();
+        return database1.getCategoryByID(categoryID);
+    }
+    public void setCategory(int categoryID){this.categoryID = categoryID;}
+
     public String getNote(){return note;}
+    public void setNote(String note){this.note = note;}
     public Boolean getIsRecurring(){return isRecurring;}
+    public void setIsRecurring(Boolean isRecurring){this.isRecurring = isRecurring;}
     public String getDateTime(){
         Instant instant = Instant.ofEpochMilli(timestamp);
         DateTimeFormatter formatter = DateTimeFormatter
@@ -25,10 +37,11 @@ public class Transaction {
                 .withZone(ZoneId.systemDefault());
         return formatter.format(instant);
     }
-    public Integer getId(){return id;}
-    public void setAmount(Money amount){this.amount = amount;}
-    public void setCategory(Category category){this.category = category;}
-    public void setNote(String note){this.note = note;}
-    public void setIsRecurring(Boolean isRecurring){this.isRecurring = isRecurring;}
     public void setDateTime(Long timestamp){this.timestamp = timestamp;}
+
+    public String toString() {
+        return this.getCategory().getName() + ": " + this.getDisplayAmount() +
+                " (Income: " + (this instanceof Income) + ", Recurring: " + this.getIsRecurring() +
+                ", Time: " + this.getDateTime() + ")";
+    }
 }

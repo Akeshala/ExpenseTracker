@@ -17,9 +17,8 @@ public abstract class TransactionFactory {
     }
 
     public abstract Transaction getTransaction(
-            Integer id,
             Money amount,
-            Category category,
+            int categoryID,
             String note,
             Boolean isRecurring
     );

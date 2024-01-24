@@ -12,7 +12,7 @@ public class ExpenseTransactionFactory extends TransactionFactory {
     }
 
     @Override
-    public Transaction getTransaction(Integer id, Money amount, Category category, String note, Boolean isRecurring) {
-        return new Expense(id, amount, category, note, isRecurring);
+    public Transaction getTransaction(Money amount, int categoryID, String note, Boolean isRecurring) {
+        return new Expense(amount, categoryID, note, isRecurring);
     }
 }

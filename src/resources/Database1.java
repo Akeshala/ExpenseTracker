@@ -1,19 +1,27 @@
 package resources;
 
-import models.Transaction;
+import models1.Transaction;
+import models1.BudgetEntry;
 import models1.Category;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Database1 {
 
     private static Database1 instance;
-    private ArrayList<Transaction> transactions;
-    private ArrayList<Category> categories;
+    private final Map<Integer, Transaction> transactions;
+    private final Map<Integer, Category> categories;
+    private final Map<Integer, BudgetEntry> budgetEntries;
+    private int transactionCounter = 0;
+    private int categoryCounter = 0;
+    private int budgetEntryCounter = 0;
 
     private Database1() {
-        transactions = new ArrayList<>();
-        categories = new ArrayList<>();
+        transactions = new HashMap<>();
+        categories = new HashMap<>();
+        budgetEntries = new HashMap<>();
         addPresetCategories();
     }
 
@@ -23,25 +31,49 @@ public class Database1 {
     }
 
     public ArrayList<Transaction> getTransactions() {
-        return transactions;
+        return new ArrayList<>(transactions.values());
+    }
+
+    public Transaction getTransactionByID(int id) {
+        return transactions.get(id);
     }
 
     public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
+        int id = transactionCounter++;
+        transaction.setId(id);
+        transactions.put(id, transaction);
     }
 
-    public void deleteTransaction(Transaction transaction) {
-        transactions.remove(transaction);
+    public void setTransaction(int id, Transaction transaction) {
+        transactions.put(id, transaction);
+    }
+
+    public void deleteTransaction(int id) {
+        transactions.remove(id);
     }
 
     public ArrayList<Category> getCategories() {
-        return categories;
+        return new ArrayList<>(categories.values());
+    }
+
+    public Category getCategoryByID(int id) {
+        return categories.get(id);
+    }
+
+    public void addCategory(Category category) {
+        int id = categoryCounter++;
+        category.setId(id);
+        categories.put(id, category);
+    }
+
+    public void deleteCategory(int id) {
+        categories.remove(id);
     }
 
     private void addPresetCategories() {
-        categories.add(new Category(1,"Salary"));
-        categories.add(new Category(2,"Clothes"));
-        categories.add(new Category(3, "Fuel"));
-        categories.add(new Category(4,"Gifts"));
+        addCategory(new Category("Salary"));
+        addCategory(new Category("Clothes"));
+        addCategory(new Category("Fuel"));
+        addCategory(new Category("Gifts"));
     }
 }

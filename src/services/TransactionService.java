@@ -4,33 +4,30 @@ import factory.ExpenseTransactionFactory;
 import factory.IncomeTransactionFactory;
 import factory.TransactionFactory;
 import models1.Category;
-import models1.Income;
 import models1.Money;
 import models1.Transaction;
-import resources.Database;
+import resources.Database1;
 import utils.ConsoleReader;
 
 import java.util.ArrayList;
-import java.util.Random;
+import static java.lang.Math.min;
 
 public class TransactionService {
-    private Database database;
-    public TransactionService() {
-        this.database = Database.getInstance();;
-    }
 
-    public void viewRecentTransactions() {
+    public static void viewRecentTransactions() {
+        Database1 database1 = Database1.getInstance();
         System.out.println("Recent Transactions:");
-        ArrayList<Transaction> transactions = database.getTransactions();
-        for (int i = 0; i < transactions.size(); i++) {
-            System.out.println((i + 1) + ". " + getTransactionDetails(transactions.get(i)));
+        ArrayList<Transaction> transactions = database1.getTransactions();
+        for (int i = 0; i < min(transactions.size(), 5); i++) {
+            System.out.println((i + 1) + ". " + transactions.get(i).toString());
         }
     }
 
-    public void addTransaction() {
+    public static void addTransaction() {
         ConsoleReader reader = ConsoleReader.getInstance();
+        Database1 database1 = Database1.getInstance();
         System.out.print("Enter category: ");
-        String category = reader.readString();
+        int categoryID = reader.readInteger();
         System.out.print("Enter amount: Rs.");
         double amount = reader.readDouble();
         System.out.print("Is it an income? (true/false): ");
@@ -47,30 +44,30 @@ public class TransactionService {
         }
         TransactionFactory transactionFactory =  TransactionFactory.getFactory();
         Transaction newTransaction = transactionFactory.getTransaction(
-                (int) amount, // id
                 new Money(amount),
-                new Category(34, category),
+                categoryID,
                 note,
                 isRecurring
         );
-        database.addTransaction(newTransaction);
+        database1.addTransaction(newTransaction);
 
         System.out.println("models.Transaction added successfully.");
     }
-    public void editOrDeleteTransaction() {
+    public static void editOrDeleteTransaction() {
         System.out.println("Existing Transactions:");
-        ArrayList<Transaction> transactions = database.getTransactions();
+        Database1 database1 = Database1.getInstance();
+        ArrayList<Transaction> transactions = database1.getTransactions();
         for (int i = 0; i < transactions.size(); i++) {
-            System.out.println((i + 1) + ". " + getTransactionDetails(transactions.get(i)));
+            System.out.println((i + 1) + ". " + transactions.get(i).toString());
         }
 
         System.out.print("Enter the number of the transaction to edit or delete: ");
         int transactionNumber = ConsoleReader.getInstance().readInteger();
 
         if (transactionNumber >= 1 && transactionNumber <= transactions.size()) {
-            Transaction selectedTransaction = transactions.get(transactionNumber - 1);
+            Transaction selectedTransaction = database1.getTransactionByID(transactionNumber);
 
-            System.out.println("Selected models.Transaction: " + getTransactionDetails(selectedTransaction));
+            System.out.println("Selected models.Transaction: " + selectedTransaction.toString());
             System.out.println("1. Edit models.Transaction");
             System.out.println("2. Delete models.Transaction");
             System.out.print("Enter your choice: ");
@@ -78,10 +75,10 @@ public class TransactionService {
 
             switch (choice) {
                 case 1:
-                    editTransaction(selectedTransaction);
+                    editTransaction(transactionNumber);
                     break;
                 case 2:
-                    deleteTransaction(selectedTransaction);
+                    deleteTransaction(transactionNumber);
                     break;
                 default:
                     System.out.println("Invalid choice. No changes made to the transaction.");
@@ -91,17 +88,14 @@ public class TransactionService {
         }
     }
 
-    private String getTransactionDetails(Transaction transaction) {
-        return transaction.getCategory() + ": " + transaction.getDisplayAmount() +
-                " (Income: " + (transaction instanceof Income) + ", Recurring: " + transaction.getIsRecurring() + ")";
-    }
-
-    private void editTransaction(Transaction transaction) {
+    private static void editTransaction(int id) {
         ConsoleReader reader = ConsoleReader.getInstance();
+        Database1 database1 = Database1.getInstance();
+        Transaction transaction = database1.getTransactionByID(id);
 
         System.out.println("Editing models.Transaction:");
         System.out.print("Enter new category (current: " + transaction.getCategory() + "): ");
-        String newCategory = reader.readString();
+        int categoryID = reader.readInteger();
         System.out.print("Enter new amount (current: " + transaction.getDisplayAmount() + "): Rs.");
         double newAmount = reader.readDouble();
         System.out.print("Is it recurring? (true/false) (current: " + transaction.getIsRecurring() + "): ");
@@ -109,20 +103,25 @@ public class TransactionService {
         System.out.print("Enter new note (current: " + transaction.getNote() + "): ");
         String newNote = reader.readString();
 
-        Random random = new Random();
-        int randomNumber = random.nextInt(1000 - 5 + 1) + 5;
-        transaction.setCategory(new Category(randomNumber, newCategory)); // set by ID
+        Category newCategory = database1.getCategoryByID(categoryID);
+        if (newCategory != null) {
+            transaction.setCategory(categoryID);
+        } else {
+            System.out.println("Invalid category ID!");
+        }
 
         Money money = new Money(newAmount);
         transaction.setAmount(money);
         transaction.setIsRecurring(newIsRecurring);
         transaction.setNote(newNote);
+        database1.setTransaction(id, transaction);
 
         System.out.println("models.Transaction edited successfully.");
     }
 
-    private void deleteTransaction(Transaction transaction) {
-        database.deleteTransaction(transaction);
+    private static void deleteTransaction(int id) {
+        Database1 database1 = Database1.getInstance();
+        database1.deleteTransaction(id);
         System.out.println("models.Transaction deleted successfully.");
     }
 }

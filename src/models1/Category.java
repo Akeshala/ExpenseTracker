@@ -1,18 +1,36 @@
 package models1;
 
+import java.sql.SQLOutput;
+
 public class Category {
     private Integer id;
     private String name;
 
-    public Category(Integer id, String name) {
+    public Category(String name) {
         this.name = name;
-        this.id = id;
     }
 
     public String getName(){
-        return  name;
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getId(){
-        return  id;
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAmount() {
+        return "Test Amount";
+    }
+
+    public void setAmount(int amount) {
+//        System.out.println(amount);
     }
 }
