@@ -52,14 +52,19 @@ public class DatabaseHandler {
         database.deleteCategory(id);
     }
 
+    public static void editCategory(int id, Category category) {
+        Database database = Database.getInstance();
+        database.setCategory(id, category);
+    }
+
     public static ArrayList<Budget> getBudgets() {
         Database database = Database.getInstance();
         return database.getBudgets();
     }
 
-    public static void addBudget(Budget budget) {
+    public static int addBudget(Budget budget) {
         Database database = Database.getInstance();
-        database.addBudget(budget);
+        return database.addBudget(budget);
     }
 
     public static Budget getBudgetByID(int id) {
@@ -70,5 +75,10 @@ public class DatabaseHandler {
     public static void setBudget(int id, Budget budget) {
         Database database = Database.getInstance();
         database.setBudget(id, budget);
+    }
+
+    public static void deleteBudget(int id) {
+        Database database = Database.getInstance();
+        database.deleteBudget(id);
     }
 }

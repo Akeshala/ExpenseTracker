@@ -43,7 +43,9 @@ public class BudgetService {
         Budget budget = DatabaseHandler.getBudgetByID(budgetID);
         if (budget == null) {
             Budget newBudget = BudgetFactory.getBudget(categoryID, newBudgetAmount);
-            DatabaseHandler.addBudget(newBudget);// add category id too
+            int newBudgetID = DatabaseHandler.addBudget(newBudget);
+            category.setBudgetID(newBudgetID);
+            DatabaseHandler.editCategory(categoryID, category);
         } else {
             budget.setAmount(newBudgetAmount);
             DatabaseHandler.setBudget(budgetID, budget);

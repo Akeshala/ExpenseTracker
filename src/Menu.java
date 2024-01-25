@@ -52,9 +52,11 @@ public class Menu {
                 CategoryService.viewCategories();
                 return false;
             case Menu.ADD_NEW_CATEGORY:
+                CategoryService.viewCategories();
                 CategoryService.addNewCategory();
                 return false;
             case Menu.DELETE_CATEGORY:
+                CategoryService.viewCategories();
                 CategoryService.deleteCategory();
                 return false;
             case Menu.SET_BUDGET:

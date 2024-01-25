@@ -66,6 +66,10 @@ public class Database {
         categories.put(id, category);
     }
 
+    public void setCategory(int id, Category category) {
+        categories.put(id, category);
+    }
+
     public void deleteCategory(int id) {
         categories.remove(id);
     }
@@ -81,10 +85,11 @@ public class Database {
         return new ArrayList<>(budgets.values());
     }
 
-    public void addBudget(Budget budget) {
+    public int addBudget(Budget budget) {
         int id = budgetCounter++;
         budget.setId(id);
         budgets.put(id, budget);
+        return budget.getId();
     }
 
     public Budget getBudgetByID(int id) {
@@ -93,5 +98,9 @@ public class Database {
 
     public void setBudget(int id, Budget budget) {
         budgets.put(id, budget);
+    }
+
+    public void deleteBudget(int id) {
+        budgets.remove(id);
     }
 }
