@@ -14,9 +14,9 @@ public class Database {
     private final Map<Integer, Transaction> transactions;
     private final Map<Integer, Category> categories;
     private final Map<Integer, Budget> budgets;
-    private int transactionCounter = 0;
-    private int categoryCounter = 0;
-    private int budgetCounter = 0;
+    private int transactionCounter = 1;
+    private int categoryCounter = 1;
+    private int budgetCounter = 1;
 
     private Database() {
         transactions = new HashMap<>();

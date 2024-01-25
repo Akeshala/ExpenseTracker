@@ -3,11 +3,12 @@ package models;
 public class Category {
     private Integer id;
     private String name;
-    private Money amount;
-    private Integer BudgetID;
+    private Integer budgetID;
+    private static final Integer DEFAULT_BUDGET_ID = -1;
 
     public Category(String name) {
-        this.name = name;
+        setName(name);
+        setBudgetID(DEFAULT_BUDGET_ID);
     }
     public String getName(){
         return name;
@@ -21,16 +22,10 @@ public class Category {
     public void setId(Integer id) {
         this.id = id;
     }
-    public double getAmount() {
-        return amount.getValue();
-    }
-    public void setAmount(double amount) {
-      this.amount = new Money(amount);
-    }
     public Integer getBudgetID() {
-        return BudgetID;
+        return this.budgetID;
     }
-    public void setBudgetID(Integer BudgetID) {
-        this.BudgetID = BudgetID;
+    public void setBudgetID(Integer budgetID) {
+        this.budgetID = budgetID;
     }
 }

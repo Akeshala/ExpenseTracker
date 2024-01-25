@@ -11,6 +11,9 @@ public class Money {
     public double getValue(){return value;}
 
     public String getRupee() {
-        return "Rs. " + value;
+        return "Rs." + value;
+    }
+    public static String getFormattedAmount(double value) {
+        return "Rs." + value;
     }
 }

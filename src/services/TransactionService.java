@@ -17,7 +17,10 @@ public class TransactionService {
         System.out.println("Recent Transactions:");
         ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
         for (int i = 0; i < min(transactions.size(), 5); i++) {
-            System.out.println((i + 1) + ". " + transactions.get(i).toString());
+            Transaction transaction = transactions.get(i);
+            Category category = DatabaseHandler.getCategoryByID(transaction.getCategoryID());
+            System.out.println(transaction.getId() + ". " + category.getName() + ": " +
+                    transaction.getConcatenatedString());
         }
         System.out.println();
     }
@@ -52,16 +55,11 @@ public class TransactionService {
         System.out.println("Transaction was added successfully.\n");
     }
     public static void editOrDeleteTransaction() {
-        System.out.println("Existing Transactions:");
         ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
-        for (int i = 0; i < transactions.size(); i++) {
-            System.out.println((i + 1) + ". " + transactions.get(i).toString());
-        }
-
         System.out.print("Enter the ID of the transaction to edit or delete: ");
         int transactionID = ConsoleReader.getInstance().readInteger();
 
-        if (transactionID >= 1 && transactionID <= transactions.size()) {
+        if (transactionID >= 1 && transactionID <= transactions.size()) { // check logic
             Transaction selectedTransaction = DatabaseHandler.getTransactionByID(transactionID);
 
             System.out.println("Selected Transaction: " + selectedTransaction.toString());
@@ -103,9 +101,11 @@ public class TransactionService {
         String newNote = reader.readString();
         transaction.setNote(newNote);
 
-        System.out.print("Enter new category ID (current: " + transaction.getCategory() + "): ");
-        int categoryID = reader.readInteger();
-        Category newCategory = DatabaseHandler.getCategoryByID(categoryID);
+        int categoryID = transaction.getCategoryID();
+        Category category = DatabaseHandler.getCategoryByID(categoryID);
+        System.out.print("Enter new category ID (current: " + category.getName() + "): ");
+        int newCategoryID = reader.readInteger();
+        Category newCategory = DatabaseHandler.getCategoryByID(newCategoryID);
         if(newCategory == null) {
             System.out.println("Invalid category ID!");
             System.out.println("Editing transaction:" + id + " failed.\n");

@@ -42,10 +42,9 @@ public class DatabaseHandler {
         return database.getCategoryByID(id);
     }
 
-    public static void addCategory(String categoryName) {
+    public static void addCategory(Category category) {
         Database database = Database.getInstance();
-        Category newCategory = new Category(categoryName);
-        database.addCategory(newCategory);
+        database.addCategory(category);
     }
 
     public static ArrayList<Budget> getBudgets() {

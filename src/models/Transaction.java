@@ -1,7 +1,5 @@
 package models;
 
-import resources.Database;
-
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -28,10 +26,6 @@ public abstract class Transaction {
     }
     public void setAmount(double amount){
         this.amount = new Money(amount);
-    }
-    public Category getCategory(){
-        Database database = Database.getInstance();
-        return database.getCategoryByID(categoryID);
     }
 
     public Integer getCategoryID() {
@@ -63,8 +57,9 @@ public abstract class Transaction {
     public void setDateTime(Long timestamp){
         this.timestamp = timestamp;
     }
-    public String toString() {
-        return this.getCategory().getName() + ": " + this.getDisplayAmount() +
+
+    public String getConcatenatedString() {
+        return this.getDisplayAmount() +
                 " (Income: " + (this instanceof Income) + ", Recurring: " + this.getIsRecurring() +
                 ", Time: " + this.getDateTime() + ")";
     }

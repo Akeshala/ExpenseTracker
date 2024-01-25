@@ -1,5 +1,6 @@
 package services;
 
+import factory.CategoryFactory;
 import models.Budget;
 import models.Category;
 import models.Money;
@@ -13,14 +14,14 @@ public class CategoryService {
     public static void viewCategories() {
         System.out.println("Budget Categories:");
         ArrayList<Category> categories = DatabaseHandler.getCategories();
-        for (int i = 0; i < categories.size(); i++) {
-            int BudgetID = categories.get(i).getBudgetID();
-            Budget Budget = DatabaseHandler.getBudgetByID(BudgetID);
-            String budget = Money.ZERO;
-            if (Budget != null) {
-                budget = Budget.getDisplayAmount();
+        for (Category category : categories) {
+            int budgetID = category.getBudgetID();
+            Budget budget = DatabaseHandler.getBudgetByID(budgetID);
+            String budgetDisplayAmount = Money.ZERO;
+            if (budget != null) {
+                budgetDisplayAmount = budget.getDisplayAmount();
             }
-            System.out.println((i + 1) + ". " + categories.get(i).getName() + ": " + budget);
+            System.out.println(category.getId() + ". " + category.getName() + ": " + budgetDisplayAmount);
         }
         System.out.println();
     }
@@ -29,7 +30,7 @@ public class CategoryService {
         ConsoleReader reader = ConsoleReader.getInstance();
         System.out.print("Enter the name of the new category: ");
         String categoryName = reader.readString();
-        DatabaseHandler.addCategory(categoryName);
+        DatabaseHandler.addCategory(CategoryFactory.getCategory(categoryName));
         System.out.println("New category added successfully.\n");
     }
 }

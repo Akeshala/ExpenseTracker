@@ -5,8 +5,7 @@ public class Budget {
     private final Integer categoryID;
     private Money amount;
 
-    public Budget(Integer id, Integer categoryID, Double amount){
-        this.id = id;
+    public Budget(Integer categoryID, Double amount){
         this.categoryID = categoryID;
         setAmount(amount);
     }
