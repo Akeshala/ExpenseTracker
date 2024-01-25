@@ -27,7 +27,7 @@ public class TransactionService {
 
     public static void addTransaction() {
         ConsoleReader reader = ConsoleReader.getInstance();
-        System.out.print("Enter category: ");
+        System.out.print("Enter category ID: ");
         int categoryID = reader.readInteger();
         System.out.print("Enter amount: Rs.");
         double amount = reader.readDouble();

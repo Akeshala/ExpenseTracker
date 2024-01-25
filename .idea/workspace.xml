@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="refactoring budget service">
+    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="few fixes for budget set">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyExpenseApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Expense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Income.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Income.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/BudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/BudgetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DatabaseHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +87,7 @@
       <updated>1704640743059</updated>
       <workItem from="1705162431187" duration="14246000" />
       <workItem from="1705720395916" duration="15843000" />
-      <workItem from="1706113571723" duration="32341000" />
+      <workItem from="1706113571723" duration="35937000" />
     </task>
     <task id="LOCAL-00001" summary="removed new">
       <option name="closed" value="true" />
@@ -196,7 +185,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706168882514</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refactoring transactions service">
+      <option name="closed" value="true" />
+      <created>1706191928819</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706191928819</updated>
+    </task>
+    <task id="LOCAL-00014" summary="few fixes for budget set">
+      <option name="closed" value="true" />
+      <created>1706193531365</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706193531365</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +219,9 @@
     <MESSAGE value="refactoring transaction service and category service" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="refactoring budget service" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring budget service" />
+    <MESSAGE value="refactoring transactions service" />
+    <MESSAGE value="few fixes for budget set" />
+    <option name="LAST_COMMIT_MESSAGE" value="few fixes for budget set" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
