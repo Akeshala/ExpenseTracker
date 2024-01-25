@@ -19,11 +19,8 @@ public class Budget {
         this.id = id;
     }
 
-    public double getAmount(){
-        return amount.getValue();
-    }
-    public String getDisplayAmount() {
-        return amount.getRupee();
+    public Money getAmount(){
+        return amount;
     }
 
     public void setAmount(Double amount) {

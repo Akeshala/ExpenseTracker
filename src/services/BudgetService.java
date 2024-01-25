@@ -19,7 +19,7 @@ public class BudgetService {
             if (category == null) {
                 continue;
             }
-            System.out.println(budget.getId() + ". " + category.getName() + ": " + budget.getDisplayAmount());
+            System.out.println(budget.getId() + ". " + category.getName() + ": " + budget.getAmount().getRupee());
         }
 
         System.out.print("Enter the number of the category to set the budget: ");
@@ -39,14 +39,14 @@ public class BudgetService {
         System.out.print("Enter the new budget amount for the selected category: Rs.");
         double newBudgetAmount = reader.readDouble();
 
-        int budgetEntryID = category.getBudgetID();
-        Budget budget = DatabaseHandler.getBudgetByID(budgetEntryID);
+        int budgetID = category.getBudgetID();
+        Budget budget = DatabaseHandler.getBudgetByID(budgetID);
         if (budget == null) {
             Budget newBudget = BudgetFactory.getBudget(categoryID, newBudgetAmount);
-            DatabaseHandler.addBudget(newBudget);
+            DatabaseHandler.addBudget(newBudget);// add category id too
         } else {
             budget.setAmount(newBudgetAmount);
-            DatabaseHandler.setBudgetEntry(budgetEntryID, budget);
+            DatabaseHandler.setBudget(budgetID, budget);
         }
 
         System.out.println("Budget for " + category.getName() + " updated successfully.\n");
@@ -55,13 +55,14 @@ public class BudgetService {
     public static void trackProgress() {
         System.out.println("Budget Progress:");
 
-        ArrayList<Budget> budgetEntries = DatabaseHandler.getBudgets();
+        ArrayList<Budget> budgets = DatabaseHandler.getBudgets();
+        ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
 
-        for (Budget budget : budgetEntries) {
+        for (Budget budget : budgets) {
             int categoryID = budget.getCategoryID();
             Category category = DatabaseHandler.getCategoryByID(categoryID);
-            double totalSpent = calculateTotalSpent(categoryID);
-            double budgetAmount = budget.getAmount();
+            double totalSpent = calculateTotalSpent(categoryID, transactions);
+            double budgetAmount = budget.getAmount().getValue();
 
             double progressPercentage = (totalSpent / budgetAmount) * 100;
 
@@ -71,10 +72,10 @@ public class BudgetService {
         System.out.println();
     }
 
-    private static double calculateTotalSpent(int categoryID) {
+    private static double calculateTotalSpent(int categoryID, ArrayList<Transaction> transactions) {
         double totalSpent = 0;
 
-        for (Transaction transaction : DatabaseHandler.getTransactions()) {
+        for (Transaction transaction : transactions) {
             if (transaction.getCategoryID().equals(categoryID) && (transaction instanceof Expense)) {
                 totalSpent += transaction.getAmount().getValue();
             }

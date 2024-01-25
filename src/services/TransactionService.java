@@ -16,13 +16,13 @@ public class TransactionService {
     public static void viewRecentTransactions() {
         System.out.println("Recent Transactions:");
         ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
-        for (int i = 0; i < min(transactions.size(), 5); i++) {
-            Transaction transaction = transactions.get(i);
-            Category category = DatabaseHandler.getCategoryByID(transaction.getCategoryID());
-            System.out.println(transaction.getId() + ". " + category.getName() + ": " +
-                    transaction.getConcatenatedString());
-        }
-        System.out.println();
+        viewTransactions(transactions, 5);
+    }
+
+    public static void viewAllTransactions() {
+        System.out.println("All Transactions:");
+        ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
+        viewTransactions(transactions, transactions.size());
     }
 
     public static void addTransaction() {
@@ -54,42 +54,20 @@ public class TransactionService {
         DatabaseHandler.addTransaction(newTransaction);
         System.out.println("Transaction was added successfully.\n");
     }
-    public static void editOrDeleteTransaction() {
-        ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
-        System.out.print("Enter the ID of the transaction to edit or delete: ");
-        int transactionID = ConsoleReader.getInstance().readInteger();
 
-        if (transactionID >= 1 && transactionID <= transactions.size()) { // check logic
-            Transaction selectedTransaction = DatabaseHandler.getTransactionByID(transactionID);
-
-            System.out.println("Selected Transaction: " + selectedTransaction.toString());
-            System.out.println("1. Edit transaction");
-            System.out.println("2. Delete transaction");
-            System.out.print("Enter your choice: ");
-            int choice = ConsoleReader.getInstance().readInteger();
-
-            switch (choice) {
-                case 1:
-                    editTransaction(transactionID);
-                    break;
-                case 2:
-                    deleteTransaction(transactionID);
-                    break;
-                default:
-                    System.out.println("Invalid choice. No changes made to the transaction.\n");
-            }
-        } else {
-            System.out.println("Invalid transaction number. Please enter a valid number.\n");
-        }
-    }
-
-    private static void editTransaction(int id) {
+    public static void editTransaction() {
+        System.out.print("Enter the ID of the transaction to edit: ");
         ConsoleReader reader = ConsoleReader.getInstance();
-        Transaction transaction = DatabaseHandler.getTransactionByID(id);
+        int transactionID = reader.readInteger();
 
-        System.out.println("Editing Transaction:" + id);
+        Transaction transaction = DatabaseHandler.getTransactionByID(transactionID);
+        if (transaction == null) {
+            System.out.println("Invalid transaction ID. Please enter a valid ID.\n");
+            return;
+        }
+        System.out.println("Editing Transaction:" + transactionID);
 
-        System.out.print("Enter new amount (current: " + transaction.getDisplayAmount() + "): Rs.");
+        System.out.print("Enter new amount (current: " + transaction.getAmount().getRupee() + "): Rs.");
         double newAmount = reader.readDouble();
         transaction.setAmount(newAmount);
 
@@ -108,15 +86,35 @@ public class TransactionService {
         Category newCategory = DatabaseHandler.getCategoryByID(newCategoryID);
         if(newCategory == null) {
             System.out.println("Invalid category ID!");
-            System.out.println("Editing transaction:" + id + " failed.\n");
+            System.out.println("Editing transaction:" + transactionID + " failed.\n");
         } else {
-            DatabaseHandler.setTransaction(id, transaction);
-            System.out.println("Transaction:" + id + " edited successfully.\n");
+            transaction.setCategoryID(newCategoryID);
+            DatabaseHandler.setTransaction(transactionID, transaction);
+            System.out.println("Transaction:" + transactionID + " edited successfully.\n");
         }
     }
 
-    private static void deleteTransaction(int id) {
-        DatabaseHandler.deleteTransaction(id);
-        System.out.println("Transaction:" + id + " deleted successfully.\n");
+    public static void deleteTransaction() {
+        System.out.print("Enter the ID of the transaction to delete: ");
+        int transactionID = ConsoleReader.getInstance().readInteger();
+
+        Transaction transaction = DatabaseHandler.getTransactionByID(transactionID);
+        if (transaction == null) {
+            System.out.println("Invalid transaction ID. Please enter a valid ID.\n");
+            return;
+        }
+        System.out.println("Editing Transaction:" + transactionID);
+
+        DatabaseHandler.deleteTransaction(transactionID);
+        System.out.println("Transaction:" + transactionID + " deleted successfully.\n");
+    }
+
+    public static void viewTransactions(ArrayList<Transaction> transactions, int limit) {
+        for (int i = 0; i < min(transactions.size(), limit); i++) {
+            Transaction transaction = transactions.get(i);
+            Category category = DatabaseHandler.getCategoryByID(transaction.getCategoryID());
+            System.out.println(transaction.getId() + ". " + category.getName() + ": " + transaction.getDetails());
+        }
+        System.out.println();
     }
 }

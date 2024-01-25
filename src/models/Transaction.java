@@ -21,18 +21,13 @@ public abstract class Transaction {
     public Money getAmount(){
         return amount;
     }
-    public String getDisplayAmount(){
-        return amount.getRupee();
-    }
     public void setAmount(double amount){
         this.amount = new Money(amount);
     }
-
     public Integer getCategoryID() {
         return categoryID;
     }
-
-    public void setCategory(int categoryID){
+    public void setCategoryID(int categoryID){
         this.categoryID = categoryID;
     }
     public String getNote(){
@@ -57,9 +52,8 @@ public abstract class Transaction {
     public void setDateTime(Long timestamp){
         this.timestamp = timestamp;
     }
-
-    public String getConcatenatedString() {
-        return this.getDisplayAmount() +
+    public String getDetails() {
+        return this.getAmount().getRupee() +
                 " (Income: " + (this instanceof Income) + ", Recurring: " + this.getIsRecurring() +
                 ", Time: " + this.getDateTime() + ")";
     }

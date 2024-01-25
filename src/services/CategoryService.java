@@ -19,7 +19,7 @@ public class CategoryService {
             Budget budget = DatabaseHandler.getBudgetByID(budgetID);
             String budgetDisplayAmount = Money.ZERO;
             if (budget != null) {
-                budgetDisplayAmount = budget.getDisplayAmount();
+                budgetDisplayAmount = budget.getAmount().getRupee();
             }
             System.out.println(category.getId() + ". " + category.getName() + ": " + budgetDisplayAmount);
         }
@@ -32,6 +32,14 @@ public class CategoryService {
         String categoryName = reader.readString();
         DatabaseHandler.addCategory(CategoryFactory.getCategory(categoryName));
         System.out.println("New category added successfully.\n");
+    }
+
+    public static void deleteCategory() {
+        ConsoleReader reader = ConsoleReader.getInstance();
+        System.out.print("Enter the ID of the category to delete: ");
+        int categoryID = reader.readInteger();
+        DatabaseHandler.deleteCategory(categoryID);
+        System.out.println("New category deleted successfully.\n");
     }
 }
 
