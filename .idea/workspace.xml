@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="few fixes for budget set">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="nit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +85,7 @@
       <updated>1704640743059</updated>
       <workItem from="1705162431187" duration="14246000" />
       <workItem from="1705720395916" duration="15843000" />
-      <workItem from="1706113571723" duration="35937000" />
+      <workItem from="1706113571723" duration="36369000" />
     </task>
     <task id="LOCAL-00001" summary="removed new">
       <option name="closed" value="true" />
@@ -201,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706193531365</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="nit">
+      <option name="closed" value="true" />
+      <created>1706198437380</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706198437380</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +218,6 @@
     <MESSAGE value="singleton pattern" />
     <MESSAGE value="my expense app refactoring" />
     <MESSAGE value="added Menu and ConsoleReader" />
-    <MESSAGE value="nit" />
     <MESSAGE value="refactoring &#10;+  new models" />
     <MESSAGE value="refactoring + new models" />
     <MESSAGE value="refactoring transactions" />
@@ -221,7 +226,8 @@
     <MESSAGE value="refactoring budget service" />
     <MESSAGE value="refactoring transactions service" />
     <MESSAGE value="few fixes for budget set" />
-    <option name="LAST_COMMIT_MESSAGE" value="few fixes for budget set" />
+    <MESSAGE value="nit" />
+    <option name="LAST_COMMIT_MESSAGE" value="nit" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
