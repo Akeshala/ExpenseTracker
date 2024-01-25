@@ -35,10 +35,10 @@ public class Menu {
         int choice = ConsoleReader.getInstance().readInteger();
         switch (choice) {
             case Menu.VIEW_TRANSACTIONS:
-                CategoryService.viewCategories();
                 TransactionService.viewRecentTransactions();
                 return false;
             case Menu.ADD_NEW_TRANSACTION:
+                CategoryService.viewCategories();
                 TransactionService.addTransaction();
                 return false;
             case Menu.EDIT_TRANSACTION:
