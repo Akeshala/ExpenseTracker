@@ -38,21 +38,7 @@ public class TransactionService {
         System.out.print("Enter note (optional): ");
         String note = reader.readString();
 
-        if (isIncome) {
-            IncomeTransactionFactory.init();
-        } else {
-            ExpenseTransactionFactory.init();
-        }
-        TransactionFactory transactionFactory =  TransactionFactory.getFactory();
-        Transaction newTransaction = transactionFactory.getTransaction(
-                amount,
-                categoryID,
-                note,
-                isRecurring
-        );
-
-        DatabaseHandler.addTransaction(newTransaction);
-        System.out.println("Transaction was added successfully.\n");
+        executeAddTransaction(isIncome, amount, categoryID, note, isRecurring);
     }
 
     public static void editTransaction() {
@@ -69,29 +55,19 @@ public class TransactionService {
 
         System.out.print("Enter new amount (current: " + transaction.getAmount().getRupee() + "): Rs.");
         double newAmount = reader.readDouble();
-        transaction.setAmount(newAmount);
 
         System.out.print("Is it recurring? (true/false) (current: " + transaction.getIsRecurring() + "): ");
         boolean newIsRecurring = reader.readBoolean();
-        transaction.setIsRecurring(newIsRecurring);
 
         System.out.print("Enter new note (current: " + transaction.getNote() + "): ");
         String newNote = reader.readString();
-        transaction.setNote(newNote);
 
         int categoryID = transaction.getCategoryID();
         Category category = DatabaseHandler.getCategoryByID(categoryID);
         System.out.print("Enter new category ID (current: " + category.getName() + "): ");
         int newCategoryID = reader.readInteger();
-        Category newCategory = DatabaseHandler.getCategoryByID(newCategoryID);
-        if(newCategory == null) {
-            System.out.println("Invalid category ID!");
-            System.out.println("Editing transaction:" + transactionID + " failed.\n");
-        } else {
-            transaction.setCategoryID(newCategoryID);
-            DatabaseHandler.setTransaction(transactionID, transaction);
-            System.out.println("Transaction:" + transactionID + " edited successfully.\n");
-        }
+
+        executeEditTransaction(newAmount, newIsRecurring, newNote, newCategoryID, transaction);
     }
 
     public static void deleteTransaction() {
@@ -109,12 +85,58 @@ public class TransactionService {
         System.out.println("Transaction:" + transactionID + " deleted successfully.\n");
     }
 
-    public static void viewTransactions(ArrayList<Transaction> transactions, int limit) {
+    private static void viewTransactions(ArrayList<Transaction> transactions, int limit) {
         for (int i = 0; i < min(transactions.size(), limit); i++) {
             Transaction transaction = transactions.get(i);
             Category category = DatabaseHandler.getCategoryByID(transaction.getCategoryID());
             System.out.println(transaction.getId() + ". " + category.getName() + ": " + transaction.getDetails());
         }
         System.out.println();
+    }
+
+    private static void executeEditTransaction(
+            double amount,
+            boolean recurring,
+            String note,
+            int categoryID,
+            Transaction transaction
+    ){
+        transaction.setAmount(amount);
+        transaction.setIsRecurring(recurring);
+        transaction.setNote(note);
+        Category newCategory = DatabaseHandler.getCategoryByID(categoryID);
+        int transactionID = transaction.getId();
+        if(newCategory == null) {
+            System.out.println("Invalid category ID!");
+            System.out.println("Editing transaction:" + transactionID + " failed.\n");
+        } else {
+            transaction.setCategoryID(categoryID);
+            DatabaseHandler.setTransaction(transactionID, transaction);
+            System.out.println("Transaction:" + transactionID + " edited successfully.\n");
+        }
+    }
+
+    private static void executeAddTransaction(
+            boolean isIncome,
+            double amount,
+            int categoryID,
+            String note,
+            boolean isRecurring
+    ){
+        if (isIncome) {
+            IncomeTransactionFactory.init();
+        } else {
+            ExpenseTransactionFactory.init();
+        }
+        TransactionFactory transactionFactory =  TransactionFactory.getFactory();
+        Transaction newTransaction = transactionFactory.getTransaction(
+                amount,
+                categoryID,
+                note,
+                isRecurring
+        );
+
+        DatabaseHandler.addTransaction(newTransaction);
+        System.out.println("Transaction was added successfully.\n");
     }
 }
