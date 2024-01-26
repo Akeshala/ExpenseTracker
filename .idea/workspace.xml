@@ -5,8 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="nit">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/asd/services/BudgetServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyExpenseApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/factory/BudgetFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/BudgetFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/factory/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/CategoryFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/factory/ExpenseTransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/ExpenseTransactionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/factory/IncomeTransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/IncomeTransactionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/factory/TransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/TransactionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Expense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Income.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Income.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/resources/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/BudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/BudgetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ConsoleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/utils/ConsoleReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/utils/DatabaseHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,21 +66,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/akeshalamarasinghe/MyProjects/ExpenseTracker/src/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/models1" />
     </key>
@@ -64,17 +98,54 @@
       <recent name="Factory" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.asd.Main" />
+      <module name="ExpenseTracker" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="MyExpenseApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="MyExpenseApp" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BudgetServiceTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ExpenseTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.asd.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.asd.services" />
+      <option name="MAIN_CLASS_NAME" value="org.asd.services.BudgetServiceTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="TestNG.BudgetServiceTests" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="TestNG.BudgetServiceTests" />
       </list>
     </recent_temporary>
   </component>

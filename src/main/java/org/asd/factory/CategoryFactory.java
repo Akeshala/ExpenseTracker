@@ -1,6 +1,6 @@
-package factory;
+package org.asd.factory;
 
-import models.Category;
+import org.asd.models.Category;
 
 public class CategoryFactory {
 

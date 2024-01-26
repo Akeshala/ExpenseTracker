@@ -1,6 +1,6 @@
-package factory;
+package org.asd.factory;
 
-import models.Transaction;
+import org.asd.models.Transaction;
 
 public abstract class TransactionFactory {
 

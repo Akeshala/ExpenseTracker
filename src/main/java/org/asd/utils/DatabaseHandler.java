@@ -1,9 +1,9 @@
-package utils;
+package org.asd.utils;
 
-import models.Budget;
-import models.Category;
-import models.Transaction;
-import resources.Database;
+import org.asd.models.Budget;
+import org.asd.models.Category;
+import org.asd.models.Transaction;
+import org.asd.resources.Database;
 
 import java.util.ArrayList;
 

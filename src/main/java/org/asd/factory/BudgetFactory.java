@@ -1,6 +1,6 @@
-package factory;
+package org.asd.factory;
 
-import models.Budget;
+import org.asd.models.Budget;
 
 public class BudgetFactory {
 

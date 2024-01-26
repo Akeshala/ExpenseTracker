@@ -1,7 +1,7 @@
-package factory;
+package org.asd.factory;
 
-import models.Income;
-import models.Transaction;
+import org.asd.models.Income;
+import org.asd.models.Transaction;
 
 public class IncomeTransactionFactory extends TransactionFactory {
 

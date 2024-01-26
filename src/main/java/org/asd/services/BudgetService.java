@@ -1,9 +1,9 @@
-package services;
+package org.asd.services;
 
-import factory.BudgetFactory;
-import models.*;
-import utils.ConsoleReader;
-import utils.DatabaseHandler;
+import org.asd.factory.BudgetFactory;
+import org.asd.models.*;
+import org.asd.utils.ConsoleReader;
+import org.asd.utils.DatabaseHandler;
 
 import java.util.ArrayList;
 
@@ -74,7 +74,7 @@ public class BudgetService {
         System.out.println();
     }
 
-    private static double calculateTotalSpent(int categoryID, ArrayList<Transaction> transactions) {
+    static double calculateTotalSpent(int categoryID, ArrayList<Transaction> transactions) {
         double totalSpent = 0;
 
         for (Transaction transaction : transactions) {

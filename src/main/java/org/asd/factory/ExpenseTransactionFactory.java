@@ -1,7 +1,7 @@
-package factory;
+package org.asd.factory;
 
-import models.Transaction;
-import models.Expense;
+import org.asd.models.Expense;
+import org.asd.models.Transaction;
 
 public class ExpenseTransactionFactory extends TransactionFactory {
 

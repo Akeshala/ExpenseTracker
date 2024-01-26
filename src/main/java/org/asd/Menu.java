@@ -1,7 +1,9 @@
-import services.BudgetService;
-import services.CategoryService;
-import services.TransactionService;
-import utils.ConsoleReader;
+package org.asd;
+
+import org.asd.services.BudgetService;
+import org.asd.services.CategoryService;
+import org.asd.services.TransactionService;
+import org.asd.utils.ConsoleReader;
 
 public class Menu {
 
