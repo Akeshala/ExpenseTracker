@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="made this maven and added test">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/asd/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/asd/services/BudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/BudgetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/asd/utils/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/utils/DatabaseHandler.java" afterDir="false" />
+    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="total income">
       <change beforePath="$PROJECT_DIR$/src/test/java/org/asd/services/BudgetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/asd/services/BudgetServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +71,7 @@
       <recent name="Factory" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="TestNG.BudgetServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -97,7 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BudgetServiceTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="BudgetServiceTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ExpenseTracker" />
       <extension name="coverage">
         <pattern>
@@ -106,7 +103,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.asd.services" />
-      <option name="MAIN_CLASS_NAME" value="org.asd.services.BudgetServiceTests" />
+      <option name="MAIN_CLASS_NAME" value="org.asd.services.BudgetServiceTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -116,12 +113,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="TestNG.BudgetServiceTests" />
+      <item itemvalue="TestNG.BudgetServiceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.BudgetServiceTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="TestNG.BudgetServiceTests" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706285354419</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="total income">
+      <option name="closed" value="true" />
+      <created>1706295041299</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1706295041299</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +307,8 @@
     <MESSAGE value="few fixes for budget set" />
     <MESSAGE value="nit" />
     <MESSAGE value="made this maven and added test" />
-    <option name="LAST_COMMIT_MESSAGE" value="made this maven and added test" />
+    <MESSAGE value="total income" />
+    <option name="LAST_COMMIT_MESSAGE" value="total income" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
