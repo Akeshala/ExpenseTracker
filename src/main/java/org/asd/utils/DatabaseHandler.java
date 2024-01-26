@@ -1,8 +1,6 @@
 package org.asd.utils;
 
-import org.asd.models.Budget;
-import org.asd.models.Category;
-import org.asd.models.Transaction;
+import org.asd.models.*;
 import org.asd.resources.Database;
 
 import java.util.ArrayList;

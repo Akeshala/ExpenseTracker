@@ -4,35 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="nit">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/asd/services/BudgetServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyExpenseApp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/factory/BudgetFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/BudgetFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/factory/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/CategoryFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/factory/ExpenseTransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/ExpenseTransactionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/factory/IncomeTransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/IncomeTransactionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/factory/TransactionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/factory/TransactionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Expense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Income.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Income.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Money.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/resources/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/BudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/BudgetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/ConsoleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/utils/ConsoleReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/utils/DatabaseHandler.java" afterDir="false" />
+    <list default="true" id="f21b026e-e4d7-4218-969c-0d9d8fccf282" name="Changes" comment="made this maven and added test">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/asd/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/asd/services/BudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/services/BudgetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/asd/utils/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/asd/utils/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/asd/services/BudgetServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/asd/services/BudgetServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706200048416</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="made this maven and added test">
+      <option name="closed" value="true" />
+      <created>1706285354419</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1706285354419</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +301,8 @@
     <MESSAGE value="refactoring transactions service" />
     <MESSAGE value="few fixes for budget set" />
     <MESSAGE value="nit" />
-    <option name="LAST_COMMIT_MESSAGE" value="nit" />
+    <MESSAGE value="made this maven and added test" />
+    <option name="LAST_COMMIT_MESSAGE" value="made this maven and added test" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

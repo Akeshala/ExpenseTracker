@@ -16,6 +16,7 @@ public class Menu {
     public static final int DELETE_CATEGORY = 7;
     public static final int SET_BUDGET = 8;
     public static final int TRACK_PROGRESS = 9;
+    public static final int TOTAL_INCOME = 10;
     public static final int EXIT_CHOICE = 0;
 
     public static void display() {
@@ -29,6 +30,7 @@ public class Menu {
         System.out.println(DELETE_CATEGORY + ". Delete category");
         System.out.println(SET_BUDGET + ". Set budget");
         System.out.println(TRACK_PROGRESS + ". Track progress");
+        System.out.println(TOTAL_INCOME + ". Total income");
         System.out.println(EXIT_CHOICE + ". Exit");
         System.out.print("Enter your choice: ");
     }
@@ -68,6 +70,9 @@ public class Menu {
             case Menu.TRACK_PROGRESS:
                 BudgetService.trackProgress();
                 return false;
+            case Menu.TOTAL_INCOME:
+                BudgetService.viewTotalIncome();
+                return true;
             case Menu.EXIT_CHOICE:
                 System.out.println("Exiting MyExpenseApp Application. Goodbye!");
                 return true;

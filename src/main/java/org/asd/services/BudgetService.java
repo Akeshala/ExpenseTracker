@@ -63,7 +63,7 @@ public class BudgetService {
         for (Budget budget : budgets) {
             int categoryID = budget.getCategoryID();
             Category category = DatabaseHandler.getCategoryByID(categoryID);
-            double totalSpent = calculateTotalSpent(categoryID, transactions);
+            double totalSpent = calculateTotalSpentByCategory(categoryID, transactions);
             double budgetAmount = budget.getAmount().getValue();
 
             double progressPercentage = (totalSpent / budgetAmount) * 100;
@@ -74,15 +74,25 @@ public class BudgetService {
         System.out.println();
     }
 
-    static double calculateTotalSpent(int categoryID, ArrayList<Transaction> transactions) {
-        double totalSpent = 0;
+    public static void viewTotalIncome(){
+        ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
+        double totalIncome = calculateTotalIncome(transactions);
 
-        for (Transaction transaction : transactions) {
-            if (transaction.getCategoryID().equals(categoryID) && (transaction instanceof Expense)) {
-                totalSpent += transaction.getAmount().getValue();
-            }
-        }
+        System.out.println("Total income " + Money.getFormattedAmount(totalIncome));
+    }
 
-        return totalSpent;
+    static double calculateTotalSpentByCategory(int categoryID, ArrayList<Transaction> transactions) {
+        return transactions.stream()
+                .filter(transaction -> transaction.getCategoryID().equals(categoryID))
+                .filter(transaction -> transaction instanceof Expense)
+                .mapToDouble(transaction -> transaction.getAmount().getValue())
+                .sum();
+    }
+
+    static double calculateTotalIncome(ArrayList<Transaction> transactions) {
+        return transactions.stream()
+                .filter(transaction -> transaction instanceof Income)
+                .mapToDouble(transaction -> transaction.getAmount().getValue())
+                .sum();
     }
 }

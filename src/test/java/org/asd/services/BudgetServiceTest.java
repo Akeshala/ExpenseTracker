@@ -15,7 +15,7 @@ public class BudgetServiceTest {
     public void testCalculateTotalSpent_emptyTransactions() {
         int categoryID = 1;
         ArrayList<Transaction> transactions = new ArrayList<>();
-        double totalSpent = BudgetService.calculateTotalSpent(categoryID, transactions);
+        double totalSpent = BudgetService.calculateTotalSpentByCategory(categoryID, transactions);
         assertEquals(0, totalSpent, 0);
     }
 
@@ -25,7 +25,7 @@ public class BudgetServiceTest {
         ArrayList<Transaction> transactions = new ArrayList<>();
         Transaction transaction = new Expense(100.00, 1, "art1", true);
         transactions.add(transaction);
-        double totalSpent = BudgetService.calculateTotalSpent(categoryID, transactions);
+        double totalSpent = BudgetService.calculateTotalSpentByCategory(categoryID, transactions);
         assertEquals(100, totalSpent, 0);
     }
 
@@ -37,7 +37,7 @@ public class BudgetServiceTest {
         Transaction transaction2 = new Expense(300.00, 3, "art3", false);
         transactions.add(transaction1);
         transactions.add(transaction2);
-        double totalSpent = BudgetService.calculateTotalSpent(categoryID, transactions);
+        double totalSpent = BudgetService.calculateTotalSpentByCategory(categoryID, transactions);
         assertEquals(1, totalSpent, 500.0);
     }
 
@@ -47,7 +47,7 @@ public class BudgetServiceTest {
         ArrayList<Transaction> transactions = new ArrayList<>();
         Transaction transaction1 = new Income(100.00, 4, "salary12", false);
         transactions.add(transaction1);
-        double totalSpent = BudgetService.calculateTotalSpent(categoryID, transactions);
+        double totalSpent = BudgetService.calculateTotalSpentByCategory(categoryID, transactions);
         assertEquals(1, totalSpent, 100.0);
     }
 }
