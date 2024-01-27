@@ -17,7 +17,7 @@ public class TransactionService {
     public static void viewRecentTransactions() {
         System.out.println("Recent Transactions:");
         ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
-        viewTransactions(transactions, 5);
+        viewTransactions(transactions, 3);
     }
 
     public static void viewAllTransactions() {
@@ -87,7 +87,8 @@ public class TransactionService {
     }
 
     private static void viewTransactions(ArrayList<Transaction> transactions, int limit) {
-        for (int i = 0; i < min(transactions.size(), limit); i++) {
+        int startIndex = Math.max(0, transactions.size() - limit);
+        for (int i = transactions.size() - 1; i >= startIndex; i--) {
             Transaction transaction = transactions.get(i);
             Category category = DatabaseHandler.getCategoryByID(transaction.getCategoryID());
             System.out.println(transaction.getId() + ". " + category.getName() + ": " + transaction.getDetails());
