@@ -4,6 +4,7 @@ import org.asd.factory.BudgetFactory;
 import org.asd.models.*;
 import org.asd.utils.ConsoleReader;
 import org.asd.utils.DatabaseHandler;
+import org.asd.utils.Money;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,8 @@ public class BudgetService {
             if (category == null) {
                 continue;
             }
-            System.out.println(budget.getId() + ". " + category.getName() + ": " + budget.getAmount().getRupee());
+            System.out.println(budget.getId() + ". " + category.getName() + ": " +
+                    Money.getFormattedAmount(budget.getAmount()));
         }
 
         System.out.print("Enter the number of the category to set the budget: ");
@@ -64,7 +66,7 @@ public class BudgetService {
             int categoryID = budget.getCategoryID();
             Category category = DatabaseHandler.getCategoryByID(categoryID);
             double totalSpent = calculateTotalSpentByCategory(categoryID, transactions);
-            double budgetAmount = budget.getAmount().getValue();
+            double budgetAmount = budget.getAmount();
 
             double progressPercentage = (totalSpent / budgetAmount) * 100;
 
@@ -78,7 +80,7 @@ public class BudgetService {
         return transactions.stream()
                 .filter(transaction -> transaction.getCategoryID().equals(categoryID))
                 .filter(transaction -> transaction instanceof Expense)
-                .mapToDouble(transaction -> transaction.getAmount().getValue())
+                .mapToDouble(Transaction::getAmount)
                 .sum();
     }
 }

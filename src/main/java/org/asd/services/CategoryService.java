@@ -3,7 +3,7 @@ package org.asd.services;
 import org.asd.factory.CategoryFactory;
 import org.asd.models.Budget;
 import org.asd.models.Category;
-import org.asd.models.Money;
+import org.asd.utils.Money;
 import org.asd.utils.ConsoleReader;
 import org.asd.utils.DatabaseHandler;
 
@@ -19,7 +19,7 @@ public class CategoryService {
             Budget budget = DatabaseHandler.getBudgetByID(budgetID);
             String budgetDisplayAmount = Money.ZERO;
             if (budget != null) {
-                budgetDisplayAmount = budget.getAmount().getRupee();
+                budgetDisplayAmount = Money.getFormattedAmount(budget.getAmount());
             }
             System.out.println(category.getId() + ". " + category.getName() + ": " + budgetDisplayAmount);
         }

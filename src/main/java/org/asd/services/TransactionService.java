@@ -5,14 +5,12 @@ import org.asd.factory.IncomeTransactionFactory;
 import org.asd.factory.TransactionFactory;
 import org.asd.models.Category;
 import org.asd.models.Income;
-import org.asd.models.Money;
+import org.asd.utils.Money;
 import org.asd.models.Transaction;
 import org.asd.utils.ConsoleReader;
 import org.asd.utils.DatabaseHandler;
 
 import java.util.ArrayList;
-
-import static java.lang.Math.min;
 
 public class TransactionService {
 
@@ -56,7 +54,7 @@ public class TransactionService {
         }
         System.out.println("Editing Transaction:" + transactionID);
 
-        System.out.print("Enter new amount (current: " + transaction.getAmount().getRupee() + "): Rs.");
+        System.out.print("Enter new amount (current: " + Money.getFormattedAmount(transaction.getAmount()) + "): Rs.");
         double newAmount = reader.readDouble();
 
         System.out.print("Is it recurring? (true/false) (current: " + transaction.getIsRecurring() + "): ");
@@ -154,7 +152,7 @@ public class TransactionService {
     static double calculateTotalIncome(ArrayList<Transaction> transactions) {
         return transactions.stream()
                 .filter(transaction -> transaction instanceof Income)
-                .mapToDouble(transaction -> transaction.getAmount().getValue())
+                .mapToDouble(Transaction::getAmount)
                 .sum();
     }
 }

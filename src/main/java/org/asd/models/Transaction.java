@@ -1,12 +1,14 @@
 package org.asd.models;
 
+import org.asd.utils.Money;
+
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public abstract class Transaction {
     protected Integer id;
-    protected Money amount;
+    protected double amount;
     protected Integer categoryID;
     protected String note;
     protected Boolean isRecurring;
@@ -18,11 +20,11 @@ public abstract class Transaction {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Money getAmount(){
+    public double getAmount(){
         return amount;
     }
     public void setAmount(double amount){
-        this.amount = new Money(amount);
+        this.amount = amount;
     }
     public Integer getCategoryID() {
         return categoryID;
@@ -53,7 +55,7 @@ public abstract class Transaction {
         this.timestamp = timestamp;
     }
     public String getDetails() {
-        return this.getAmount().getRupee() +
+        return Money.getFormattedAmount(this.getAmount()) +
                 " (Income: " + (this instanceof Income) + ", Recurring: " + this.getIsRecurring() +
                 ", Time: " + this.getDateTime() + ")";
     }

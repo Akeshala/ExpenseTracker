@@ -3,7 +3,7 @@ package org.asd.models;
 public class Budget {
     private Integer id;
     private final Integer categoryID;
-    private Money amount;
+    private double amount;
 
     public Budget(Integer categoryID, Double amount){
         this.categoryID = categoryID;
@@ -19,11 +19,11 @@ public class Budget {
         this.id = id;
     }
 
-    public Money getAmount(){
+    public double getAmount(){
         return amount;
     }
 
     public void setAmount(Double amount) {
-        this.amount = new Money(amount);
+        this.amount = amount;
     }
 }
