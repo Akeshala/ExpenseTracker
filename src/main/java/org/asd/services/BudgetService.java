@@ -74,24 +74,10 @@ public class BudgetService {
         System.out.println();
     }
 
-    public static void viewTotalIncome(){
-        ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
-        double totalIncome = calculateTotalIncome(transactions);
-
-        System.out.println("Total income " + Money.getFormattedAmount(totalIncome));
-    }
-
     static double calculateTotalSpentByCategory(int categoryID, ArrayList<Transaction> transactions) {
         return transactions.stream()
                 .filter(transaction -> transaction.getCategoryID().equals(categoryID))
                 .filter(transaction -> transaction instanceof Expense)
-                .mapToDouble(transaction -> transaction.getAmount().getValue())
-                .sum();
-    }
-
-    static double calculateTotalIncome(ArrayList<Transaction> transactions) {
-        return transactions.stream()
-                .filter(transaction -> transaction instanceof Income)
                 .mapToDouble(transaction -> transaction.getAmount().getValue())
                 .sum();
     }

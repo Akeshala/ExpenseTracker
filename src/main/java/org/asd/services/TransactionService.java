@@ -4,6 +4,8 @@ import org.asd.factory.ExpenseTransactionFactory;
 import org.asd.factory.IncomeTransactionFactory;
 import org.asd.factory.TransactionFactory;
 import org.asd.models.Category;
+import org.asd.models.Income;
+import org.asd.models.Money;
 import org.asd.models.Transaction;
 import org.asd.utils.ConsoleReader;
 import org.asd.utils.DatabaseHandler;
@@ -140,5 +142,19 @@ public class TransactionService {
 
         DatabaseHandler.addTransaction(newTransaction);
         System.out.println("Transaction was added successfully.\n");
+    }
+
+    public static void viewTotalIncome(){
+        ArrayList<Transaction> transactions = DatabaseHandler.getTransactions();
+        double totalIncome = calculateTotalIncome(transactions);
+
+        System.out.println("Total income " + Money.getFormattedAmount(totalIncome));
+    }
+
+    static double calculateTotalIncome(ArrayList<Transaction> transactions) {
+        return transactions.stream()
+                .filter(transaction -> transaction instanceof Income)
+                .mapToDouble(transaction -> transaction.getAmount().getValue())
+                .sum();
     }
 }

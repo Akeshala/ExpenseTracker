@@ -71,7 +71,7 @@ public class Menu {
                 BudgetService.trackProgress();
                 return false;
             case Menu.TOTAL_INCOME:
-                BudgetService.viewTotalIncome();
+                TransactionService.viewTotalIncome();
                 return true;
             case Menu.EXIT_CHOICE:
                 System.out.println("Exiting MyExpenseApp Application. Goodbye!");
